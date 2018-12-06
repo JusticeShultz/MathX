@@ -2,16 +2,13 @@
 
 namespace MathX
 {
-	/*#ifdef _utils_h_
-	#define _utils_h_
-	#endif
-	*/
 	//Defined as PI or π.
 	#define PI 3.14159265358979323846
 	//Multiply this with a angle measure expressed in degrees to get its equivalent in radians.
 	#define DEG2RAD (PI/180.0f)
 	//Multiply this with a angle measure expressed in radians to get its equivalent in degrees.
 	#define RAD2DEG (180.0f/PI)
+
 	//Returns the smaller of the two values.
 	int min(int a, int b);
 	//Returns the larger of the two values.
@@ -30,55 +27,335 @@ namespace MathX
 	float moveTowards(float current, float target, float maxDelta);
 	//Return the given value to the power of the input power.
 	float power(float val, int power);
-	typedef struct Vector2
+	double sqrt(double x);
+
+	class Vector2
 	{
 	public:
+		//Input value X.
 		float X;
+		//Input value Y.
 		float Y;
 
+		//Sets the values to 0. (Use the constructor input for a init value)
 		void Zero() { X = 0, Y = 0; };
+		//Sets the values to 1. (Use the constructor input for a init value)
 		void One() { X = 1, Y = 1; };
+		//Sets the values to 5. (Use the constructor input for a init value)
 		void Five() { X = 5, Y = 5; };
+		//Sets the values to 50. (Use the constructor input for a init value)
 		void Fifty() { X = 50, Y = 50; };
-	private:
-		Vector2 & operator+=(const Vector2 &rhs) { Vector2 z = Vector2{ (float)(rhs.X + X), (float)(rhs.Y + Y) }; return z; };
-		Vector2& operator-=(const Vector2 &rhs) { Vector2 z = Vector2{ (float)(rhs.X - X), (float)(rhs.Y - Y) }; return z; };
-		Vector2& operator*=(const Vector2 &rhs) { Vector2 z = Vector2{ (float)(rhs.X * X), (float)(rhs.Y * Y) }; return z; };
-		Vector2& operator/=(const Vector2 &rhs) { Vector2 z = Vector2{ (float)(rhs.X / X), (float)(rhs.Y / Y) }; return z; };
 
-		Vector2& operator+(const Vector2 &rhs) { Vector2 z = Vector2{ (float)(rhs.X + X), (float)(rhs.Y + Y) }; return z; };
-		Vector2& operator-(const Vector2 &rhs) { Vector2 z = Vector2{ (float)(rhs.X - X), (float)(rhs.Y - Y) }; return z; };
-		Vector2& operator*(const Vector2 &rhs) { Vector2 z = Vector2{ (float)(rhs.X * X), (float)(rhs.Y * Y) }; return z; };
-		Vector2& operator/(const Vector2 &rhs) { Vector2 z = Vector2{ (float)(rhs.X / X), (float)(rhs.Y / Y) }; return z; };
+		//Default constructor.
+		Vector2(void);
+		//Data input constructor.
+		Vector2(float xValue, float yValue);
+		//Additional constructor type.
+		Vector2(const Vector2 & v);
+		//Additional constructor type.
+		Vector2(const Vector2 * v);
+		//Deconstructor
+		~Vector2(void);
 
-		Vector2& operator=(Vector2 &rhs) { Vector2 z = Vector2{ rhs.X = X, rhs.Y = Y }; return z; };
+		//Setter function.
+		void Set(float xValue, float yValue);
+		//Get the length of the vector.
+		float Length() const;
+		//Get the length squared of the vector.
+		float LengthSquared() const;
+		//Get the distance of the vector.
+		float Distance(const Vector2 & v) const;
+		//Get the distance squared of the vector.
+		float DistanceSquared(const Vector2 & v) const;
+		//Get the Dot product of the vector.
+		float Dot(const Vector2 & v) const;
+		//Get the Cross product of the vector.
+		float Cross(const Vector2 & v) const;
+		//Get the normal of the vector.
+		Vector2 & Normal();
+		//Normalize the vector.
+		Vector2 & Normalize();
 
-		bool operator==(const Vector2 &rhs) { if ((float)rhs.X == X && (float)rhs.Y == Y) { return true; } return false; };
+		//Vector2 operators:
+
+		//Setter Vector2 input.
+		Vector2 & operator = (const Vector2 & v) { X = v.X; Y = v.Y; return *this; };
+		//Setter 1 value input.
+		Vector2 & operator = (const float & f) { X = f; Y = f; return *this; };
+		//Negative operation.
+		Vector2 & operator - (void) { X = -X; Y = -Y; return *this; };
+
+		//Checker equals operation.
+		bool operator == (const Vector2 & v) const { return (X == v.X) && (Y == v.Y); };
+		//Checker does not equal operation.
+		bool operator != (const Vector2 & v) const { return (X != v.X) || (Y != v.Y); };
+
+		//Simple addition operation.
+		const Vector2 operator + (const Vector2 & v) const { Vector2 q; q.X = X + v.X; q.Y = Y + v.Y; return q; };
+		//Simple subtraction operation.
+		const Vector2 operator - (const Vector2 & v) const { Vector2 q; q.X = X - v.X; q.Y = Y - v.Y; return q; };
+		//Simple multiplication operation.
+		const Vector2 operator * (const Vector2 & v) const { Vector2 q; q.X = X * v.X; q.Y = Y * v.Y; return q; };
+		//Simple division operation.
+		const Vector2 operator / (const Vector2 & v) const { Vector2 q; q.X = X / v.X; q.Y = Y / v.Y; return q; };
+
+		//Simple addition operation - simple.
+		Vector2 & operator += (const Vector2 & v) { X += v.X; Y += v.Y; return *this; };
+		//Simple subtraction operation - simple.
+		Vector2 & operator -= (const Vector2 & v) { X -= v.X; Y -= v.Y; return *this; };
+		//Simple multiplication operation - simple.
+		Vector2 & operator *= (const Vector2 & v) { X *= v.X; Y *= v.Y; return *this; };
+		//Simple division operation - simple.
+		Vector2 & operator /= (const Vector2 & v) { X /= v.X; Y /= v.Y; return *this; };
+
+		//Simple addition operation - simple one value input.
+		Vector2 & operator += (float v) { X += v; Y += v; return *this; };
+		//Simple subtraction operation - simple one value input.
+		Vector2 & operator -= (float v) { X -= v; Y -= v; return *this; };
+		//Simple multiplication operation - simple one value input.
+		Vector2 & operator *= (float v) { X *= v; Y *= v; return *this; };
+		//Simple division operation - simple one value input.
+		Vector2 & operator /= (float v) { X /= v; Y /= v; return *this; };
+
+		//Simple addition to a value operator.
+		const Vector2 operator + (float v) const { return Vector2(X + v, Y + v); }
+			friend Vector2 operator + (const float lhs, const Vector2 &rhs) { return rhs + lhs; };
+		//Simple subtraction to a value operator.
+		const Vector2 operator - (float v) const { return Vector2(X - v, Y - v); }
+			friend Vector2 operator - (const float lhs, const Vector2 &rhs) { return rhs - lhs; };
+		//Simple multiplication to a value operator.
+		const Vector2 operator * (float v) const { return Vector2(X * v, Y * v); }
+			friend Vector2 operator * (const float lhs, const Vector2 &rhs) { return rhs * lhs; };
+		//Simple division to a value operator.
+		const Vector2 operator / (float v) const { return Vector2(X / v, Y / v); }
+			friend Vector2 operator / (const float lhs, const Vector2 &rhs) { return rhs / lhs; };
+
+		//Simple increment operator.
+		Vector2 & operator ++ (int z) { ++X, ++Y; return *this; };
+		//Simple decrement operator.
+		Vector2 & operator -- (int z) { --X, --Y; return *this; };
 	};
-	typedef struct Vector3
+
+	class Vector3
 	{
+	public:
+		//Input value X.
 		float X;
+		//Input value Y.
 		float Y;
+		//Input value Z.
 		float Z;
 
-		void Zero() { X = 0, Y = 0, Z = 0; };
-		void One() { X = 1, Y = 1, Z = 1; };
-		void Five() { X = 5, Y = 5, Z = 5; };
-		void Fifty() { X = 50, Y = 50, Z = 50; };
+		//Sets the values to 0. (Use the constructor input for a init value)
+		void Zero() { X = 0, Y = 0; Z = 0; };
+		//Sets the values to 1. (Use the constructor input for a init value)
+		void One() { X = 1, Y = 1; Z = 1; };
+		//Sets the values to 5. (Use the constructor input for a init value)
+		void Five() { X = 5, Y = 5; Z = 5; };
+		//Sets the values to 50. (Use the constructor input for a init value)
+		void Fifty() { X = 50, Y = 50; Z = 50; };
 
-		//These don't work yet.
-		Vector3& operator+=(const Vector3 q) { Vector3 z = Vector3{ q.X + X, q.Y + Y, q.Z + Z }; return z; };
-		Vector3& operator-=(const Vector3 q) { Vector3 z = Vector3{ q.X - X, q.Y - Y, q.Z - Z }; return z; };
-		Vector3& operator*=(const Vector3 q) { Vector3 z = Vector3{ q.X * X, q.Y * Y, q.Z * Z }; return z; };
-		Vector3& operator/=(const Vector3 q) { Vector3 z = Vector3{ q.X / X, q.Y / Y, q.Z / Z }; return z; };
+		//Default constructor.
+		Vector3(void);
+		//Data input constructor.
+		Vector3(float xValue, float yValue, float zValue);
+		//Additional constructor type.
+		Vector3(const Vector3 & v);
+		//Additional constructor type.
+		Vector3(const Vector3 * v);
+		//Deconstructor
+		~Vector3(void);
 
-		Vector3& operator+(const Vector3 q) { Vector3 z = Vector3{ q.X + X, q.Y + Y, q.Z + Z }; return z; };
-		Vector3& operator-(const Vector3 q) { Vector3 z = Vector3{ q.X - X, q.Y - Y, q.Z - Z }; return z; };
-		Vector3& operator*(const Vector3 q) { Vector3 z = Vector3{ q.X * X, q.Y * Y, q.Z * Z }; return z; };
-		Vector3& operator/(const Vector3 q) { Vector3 z = Vector3{ q.X / X, q.Y / Y, q.Z / Z }; return z; };
+		//Setter function.
+		void Set(float xValue, float yValue, float zValue);
+		//Get the length of the vector.
+		float Length() const;
+		//Get the length squared of the vector.
+		float LengthSquared() const;
+		//Get the distance of the vector.
+		float Distance(const Vector3 & v) const;
+		//Get the distance squared of the vector.
+		float DistanceSquared(const Vector3 & v) const;
+		//Get the Dot product of the vector.
+		float Dot(const Vector3 & v) const;
+		//Get the Cross product of the vector.
+		float Cross(const Vector3 & v) const;
+		//Get the normal of the vector.
+		Vector3 & Normal();
+		//Normalize the vector.
+		Vector3 & Normalize();
 
-		Vector3& operator=(Vector3 q) { Vector3 z = Vector3{ q.X = X, q.Y = Y, q.Z = Z }; return z; };
+		//Vector3 operators:
+
+		//Setter Vector2 input.
+		Vector3 & operator = (const Vector3 & v) { X = v.X; Y = v.Y; Z = v.Z; return *this; };
+		//Setter 1 value input.
+		Vector3 & operator = (const float & f) { X = f; Y = f; Z = f; return *this; };
+		//Negative operation.
+		Vector3 & operator - (void) { X = -X; Y = -Y; Z = -Z; return *this; };
+
+		//Checker equals operation.
+		bool operator == (const Vector3 & v) const { return (X == v.X) && (Y == v.Y) && (Z == v.Z); };
+		//Checker does not equal operation.
+		bool operator != (const Vector3 & v) const { return (X != v.X) || (Y != v.Y) || (Z != v.Z); };
+
+		//Simple addition operation.
+		const Vector3 operator + (const Vector3 & v) const { Vector3 q; q.X = X + v.X; q.Y = Y + v.Y; q.Z = Z + v.Z; return q; };
+		//Simple subtraction operation.
+		const Vector3 operator - (const Vector3 & v) const { Vector3 q; q.X = X - v.X; q.Y = Y - v.Y; q.Z = Z - v.Z; return q; };
+		//Simple multiplication operation.
+		const Vector3 operator * (const Vector3 & v) const { Vector3 q; q.X = X * v.X; q.Y = Y * v.Y; q.Z = Z * v.Z; return q; };
+		//Simple division operation.
+		const Vector3 operator / (const Vector3 & v) const { Vector3 q; q.X = X / v.X; q.Y = Y / v.Y; q.Z = Z / v.Z; return q; };
+
+		//Simple addition operation - simple.
+		Vector3 & operator += (const Vector3 & v) { X += v.X; Y += v.Y; Z += v.Z; return *this; };
+		//Simple subtraction operation - simple.
+		Vector3 & operator -= (const Vector3 & v) { X -= v.X; Y -= v.Y; Z -= v.Z; return *this; };
+		//Simple multiplication operation - simple.
+		Vector3 & operator *= (const Vector3 & v) { X *= v.X; Y *= v.Y; Z *= v.Z; return *this; };
+		//Simple division operation - simple.
+		Vector3 & operator /= (const Vector3 & v) { X /= v.X; Y /= v.Y; Z /= v.Z; return *this; };
+
+		//Simple addition operation - simple one value input.
+		Vector3 & operator += (float v) { X += v; Y += v; Z += v; return *this; };
+		//Simple subtraction operation - simple one value input.
+		Vector3 & operator -= (float v) { X -= v; Y -= v; Z -= v; return *this; };
+		//Simple multiplication operation - simple one value input.
+		Vector3 & operator *= (float v) { X *= v; Y *= v; Z *= v; return *this; };
+		//Simple division operation - simple one value input.
+		Vector3 & operator /= (float v) { X /= v; Y /= v; Z /= v; return *this; };
+
+		//Simple addition to a value operator.
+		const Vector3 operator + (float v) const { return Vector3(X + v, Y + v, Z  + v); }
+			friend Vector3 operator + (const float lhs, const Vector3 &rhs) { return rhs + lhs; };
+		//Simple subtraction to a value operator.
+		const Vector3 operator - (float v) const { return Vector3(X - v, Y - v, Z - v); }
+			friend Vector3 operator - (const float lhs, const Vector3 &rhs) { return rhs - lhs; };
+		//Simple multiplication to a value operator.
+		const Vector3 operator * (float v) const { return Vector3(X * v, Y * v, Z * v); }
+			friend Vector3 operator * (const float lhs, const Vector3 &rhs) { return rhs * lhs; };
+		//Simple division to a value operator.
+		const Vector3 operator / (float v) const { return Vector3(X / v, Y / v, Z / v); }
+			friend Vector3 operator / (const float lhs, const Vector3 &rhs) { return rhs / lhs; };
+
+		//Simple increment operator.
+		Vector3 & operator ++ (int z) { ++X, ++Y, ++Z; return *this; };
+		//Simple decrement operator.
+		Vector3 & operator -- (int z) { --X, --Y, --Z; return *this; };
 	};
+
+	class Vector4
+	{
+	public:
+		//Input value X.
+		float X;
+		//Input value Y.
+		float Y;
+		//Input value Z.
+		float Z;
+		//Input value W.
+		float W;
+
+		//Sets the values to 0. (Use the constructor input for a init value)
+		void Zero() { X = 0, Y = 0; Z = 0; W = 0; };
+		//Sets the values to 1. (Use the constructor input for a init value)
+		void One() { X = 1, Y = 1; Z = 1; W = 1; };
+		//Sets the values to 5. (Use the constructor input for a init value)
+		void Five() { X = 5, Y = 5; Z = 5; W = 5; };
+		//Sets the values to 50. (Use the constructor input for a init value)
+		void Fifty() { X = 50, Y = 50; Z = 50; W = 50; };
+
+		//Default constructor.
+		Vector4(void);
+		//Data input constructor.
+		Vector4(float xValue, float yValue, float zValue, float wValue);
+		//Additional constructor type.
+		Vector4(const Vector4 & v);
+		//Additional constructor type.
+		Vector4(const Vector4 * v);
+		//Deconstructor
+		~Vector4(void);
+
+		//Setter function.
+		void Set(float xValue, float yValue, float zValue, float wValue);
+		//Get the length of the vector.
+		float Length() const;
+		//Get the length squared of the vector.
+		float LengthSquared() const;
+		//Get the distance of the vector.
+		float Distance(const Vector4 & v) const;
+		//Get the distance squared of the vector.
+		float DistanceSquared(const Vector4 & v) const;
+		//Get the Dot product of the vector.
+		float Dot(const Vector4 & v) const;
+		//Get the Cross product of the vector.
+		float Cross(const Vector4 & v) const;
+		//Get the normal of the vector.
+		Vector4 & Normal();
+		//Normalize the vector.
+		Vector4 & Normalize();
+
+		//Vector3 operators:
+
+		//Setter Vector2 input.
+		Vector4 & operator = (const Vector4 & v) { X = v.X; Y = v.Y; Z = v.Z; W = v.W; return *this; };
+		//Setter 1 value input.
+		Vector4 & operator = (const float & f) { X = f; Y = f; Z = f; W = f; return *this; };
+		//Negative operation.
+		Vector4 & operator - (void) { X = -X; Y = -Y; Z = -Z; W = -W; return *this; };
+
+		//Checker equals operation.
+		bool operator == (const Vector4 & v) const { return (X == v.X) && (Y == v.Y) && (Z == v.Z) && (W == v.W); };
+		//Checker does not equal operation.
+		bool operator != (const Vector4 & v) const { return (X != v.X) || (Y != v.Y) || (Z != v.Z) || (W != v.W); };
+
+		//Simple addition operation.
+		const Vector4 operator + (const Vector4 & v) const { Vector4 q; q.X = X + v.X; q.Y = Y + v.Y; q.Z = Z + v.Z; q.W = W + v.W; return q; };
+		//Simple subtraction operation.
+		const Vector4 operator - (const Vector4 & v) const { Vector4 q; q.X = X - v.X; q.Y = Y - v.Y; q.Z = Z - v.Z; q.W = W - v.W; return q; };
+		//Simple multiplication operation.
+		const Vector4 operator * (const Vector4 & v) const { Vector4 q; q.X = X * v.X; q.Y = Y * v.Y; q.Z = Z * v.Z; q.W = W * v.W; return q; };
+		//Simple division operation.
+		const Vector4 operator / (const Vector4 & v) const { Vector4 q; q.X = X / v.X; q.Y = Y / v.Y; q.Z = Z / v.Z; q.W = W / v.W; return q; };
+
+		//Simple addition operation - simple.
+		Vector4 & operator += (const Vector4 & v) { X += v.X; Y += v.Y; Z += v.Z; W += v.W; return *this; };
+		//Simple subtraction operation - simple.
+		Vector4 & operator -= (const Vector4 & v) { X -= v.X; Y -= v.Y; Z -= v.Z; W -= v.W; return *this; };
+		//Simple multiplication operation - simple.
+		Vector4 & operator *= (const Vector4 & v) { X *= v.X; Y *= v.Y; Z *= v.Z; W *= v.W; return *this; };
+		//Simple division operation - simple.
+		Vector4 & operator /= (const Vector4 & v) { X /= v.X; Y /= v.Y; Z /= v.Z; W /= v.W; return *this; };
+
+		//Simple addition operation - simple one value input.
+		Vector4 & operator += (float v) { X += v; Y += v; Z += v; W += v; return *this; };
+		//Simple subtraction operation - simple one value input.
+		Vector4 & operator -= (float v) { X -= v; Y -= v; Z -= v; W -= v; return *this; };
+		//Simple multiplication operation - simple one value input.
+		Vector4 & operator *= (float v) { X *= v; Y *= v; Z *= v; W *= v; return *this; };
+		//Simple division operation - simple one value input.
+		Vector4 & operator /= (float v) { X /= v; Y /= v; Z /= v; W /= v; return *this; };
+
+		//Simple addition to a value operator.
+		const Vector4 operator + (float v) const { return Vector4(X + v, Y + v, Z + v, W + v); }
+			friend Vector4 operator + (const float lhs, const Vector4 &rhs) { return rhs + lhs; };
+		//Simple subtraction to a value operator.
+		const Vector4 operator - (float v) const { return Vector4(X - v, Y - v, Z - v, W - v); }
+			friend Vector4 operator - (const float lhs, const Vector4 &rhs) { return rhs - lhs; };
+		//Simple multiplication to a value operator.
+		const Vector4 operator * (float v) const { return Vector4(X * v, Y * v, Z * v, W * v); }
+			friend Vector4 operator * (const float lhs, const Vector4 &rhs) { return rhs * lhs; };
+		//Simple division to a value operator.
+		const Vector4 operator / (float v) const { return Vector4(X / v, Y / v, Z / v, W / v); }
+			friend Vector4 operator / (const float lhs, const Vector4 &rhs) { return rhs / lhs; };
+
+		//Simple increment operator.
+		Vector4 & operator ++ (int z) { ++X, ++Y, ++Z, ++W; return *this; };
+		//Simple decrement operator.
+		Vector4 & operator -- (int z) { --X, --Y, --Z, --W; return *this; };
+	};
+
 	typedef struct Quaternion
 	{
 		float X;
@@ -88,7 +365,7 @@ namespace MathX
 
 		void Zero() { X = 0, Y = 0, Z = 0; W = 0; };
 
-		//Currently not working, need `a` type math functions.
+		//Currently not working, need `a` type math functions to make this actually work(include cmath and uncomment to work properly).
 		Vector3 QuaternionToEuler(Quaternion q)
 		{
 			Vector3 result = { 0 };
@@ -106,11 +383,28 @@ namespace MathX
 			return result;
 		}
 	};
-	typedef struct Matrix
-	{
-		float m0, m4, m8, m12;
-		float m1, m5, m9, m13;
-		float m2, m6, m10, m14;
-		float m3, m7, m11, m15;
+
+	//(Incomplete!)
+	class Matrix {
+
+	private:
+		int** array;
+
+	public:
+		int m, n;
+		Matrix(int m, int n);
+
+		static Matrix* add(Matrix* m1, Matrix* m2);
+		int get(int i, int j);
+		void set(int i, int j, int e);
+
+		Matrix operator+(const Matrix& rhs) const { Matrix res(n, m); return res; }
+
+		~Matrix();
 	};
+
+	//32bit float type.
+	typedef float float32;
+	//Simple Vector1 definition.
+	typedef float Vector1;
 }
