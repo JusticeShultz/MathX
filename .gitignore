@@ -4,8 +4,11 @@ vs/
 *.ilk
 mathLib/Debug/
 unitTest/Debug/
+.vs/
 .vs/*
 .vs/mathLib/*
 .vs/mathLib/v15/*
 .vs/mathLib/v15/ipch/*
 .vs/mathLib/v15/ipch/AutoPCH/*
+.git/
+.gitignore
