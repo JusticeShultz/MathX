@@ -1,0 +1,7 @@
+﻿  main.cpp
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(385): warning C4091: 'typedef ': ignored on left of 'MathX::Quaternion' when no variable is declared
+c:\users\s189081\source\repos\mathlib\raylib_magnitudeandnormilization\ball.h(44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_magnitudeandnormilization\main.cpp(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_magnitudeandnormilization\main.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_magnitudeandnormilization\main.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Raylib_MagnitudeAndNormilization.vcxproj -> C:\Users\s189081\source\repos\mathLib\Debug\Raylib_MagnitudeAndNormilization.exe

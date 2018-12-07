@@ -1,0 +1,6 @@
+﻿  main.cpp
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(6): warning C4005: 'PI': macro redefinition
+  c:\users\s189081\source\repos\mathlib\thirdparty\raylib\raylib.h(86): note: see previous definition of 'PI'
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(385): warning C4091: 'typedef ': ignored on left of 'MathX::Quaternion' when no variable is declared
+c:\users\s189081\source\repos\mathlib\raylib_vectors\sprite.h(47): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Raylib_Vectors.vcxproj -> C:\Users\s189081\source\repos\mathLib\Debug\Raylib_Vectors.exe
