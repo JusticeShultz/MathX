@@ -5,3 +5,5 @@
 ### Changelog:
 
 Added raylib lessons & updated the library with a sqrt function.
+
+#### Currently does not support matrices or matrix scaler math. (Upcoming)
