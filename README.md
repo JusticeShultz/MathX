@@ -1,8 +1,7 @@
 # MathX
 
-## MathX is a math library built for use with a game.
+## MathX is a generic math library built for use with simple math functionality. This library supports basics including vector2's, vector3's & vector4's - each with their own operators and math functions to support them.
 
 ### Changelog:
 
-Added vec 3 & 4, new definitions, converted everything to class structures where necessary, overhauled vector operators.
-Namespace updated to use MathX::Function conventions.
+Added raylib lessons & updated the library with a sqrt function.
