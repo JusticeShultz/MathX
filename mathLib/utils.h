@@ -384,23 +384,94 @@ namespace MathX
 		}
 	};
 
-	//(Incomplete!)
-	class Matrix {
-
-	private:
-		int** array;
-
+	class Matrix2 
+	{
 	public:
-		int m, n;
-		Matrix(int m, int n);
+		//Matrix array(4)
+		int Row[4];
 
-		static Matrix* add(Matrix* m1, Matrix* m2);
-		int get(int i, int j);
-		void set(int i, int j, int e);
+		//Empty constructor(All default to 0).
+		Matrix2();
 
-		Matrix operator+(const Matrix& rhs) const { Matrix res(n, m); return res; }
+		//Single fill constructor.
+		Matrix2(int a);
 
-		~Matrix();
+		//2 row constructor.
+		Matrix2
+		(
+			int a, int b
+		);
+
+		//4 integral constructor.
+		Matrix2
+		(
+			int a, int b, 
+			int c, int d
+		);
+
+		//Common deconstructor.
+		~Matrix2();
+	};
+
+	class Matrix3
+	{
+	public:
+		//Matrix array(9)
+		int Row[9];
+
+		//Empty constructor(All default to 0).
+		Matrix3();
+
+		//Single fill constructor.
+		Matrix3(int a);
+		
+		//3 row constructor.
+		Matrix3
+		(
+			int a, int b, int c
+		);
+
+		//9 integral constructor.
+		Matrix3
+		(
+			int a, int b, int c, 
+			int d, int e, int f, 
+			int g, int h, int i
+		);
+
+		//Common deconstructor.
+		~Matrix3();
+	};
+
+	class Matrix4
+	{
+	public:
+		//Matrix array(16)
+		int Row[16];
+
+		//Empty constructor(All default to 0).
+		Matrix4();
+
+		//Single fill constructor.
+		Matrix4(int a);
+
+		//4 row constructor.
+		Matrix4
+		(
+			int a, int b, int c, int d
+		);
+
+		//16 integral constructor.
+		Matrix4
+		(
+			int a, int b, int c, int d,
+			int e, int f, int g, int h,
+			int i, int j, int k, int l,
+			int m, int n, int o, int p
+		);
+
+		//Common deconstructor.
+		~Matrix4();
 	};
 
 	//32bit float type.

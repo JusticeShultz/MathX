@@ -35,8 +35,6 @@ void Sprite::Draw()
 	if (Rotation > 360) Rotation = 0;
 	if (Rotation < 0) Rotation = 360;
 
-	
-
 	MathX::Vector2 mouseVec = MathX::Vector2{ (float)GetMouseX(), (float)GetMouseY() };
 
 	//Distance formula.

@@ -20,7 +20,7 @@ int main()
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
-		ClearBackground(RAYWHITE);
+		ClearBackground(BLACK);
 
 		Player1.Draw();
 		Player2.Draw();

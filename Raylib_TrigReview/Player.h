@@ -13,9 +13,7 @@ public:
 
 	void Draw()
 	{
-		for (int i = 0; i < bagOfOrbitals.size(); ++i)
-			bagOfOrbitals[i]->Draw(MathX::Vector2(GetMouseX() + Offset.X, GetMouseY() + Offset.Y));
-
+		for (int i = 0; i < bagOfOrbitals.size(); ++i) bagOfOrbitals[i]->Draw(MathX::Vector2(GetMouseX() + Offset.X, GetMouseY() + Offset.Y));
 		DrawCircle(GetMouseX() + Offset.X, GetMouseY() + Offset.Y, 15, GREEN);
 	};
 
@@ -23,13 +21,5 @@ public:
 	~Player();
 };
 
-Player::Player()
-{
-	for(int i = 0; i < 50; ++i)
-		bagOfOrbitals.push_back(new Object);
-}
-
-Player::~Player()
-{
-
-}
+Player::Player() { for(int i = 0; i < 50; ++i) bagOfOrbitals.push_back(new Object); }
+Player::~Player() { }

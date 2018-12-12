@@ -61,7 +61,7 @@ namespace MathX
 		if (Length() != 0)
 		{
 			float length = LengthSquared();
-			X /= length; 
+			X /= length;
 			Y /= length;
 			return *this;
 		}
@@ -129,33 +129,84 @@ namespace MathX
 		return *this;
 	}
 
-	//Matrices: (INCOMPLETE)
-	Matrix::Matrix(int var_m, int var_n) {
-		m = var_m;
-		n = var_n;
-		array = new int*[n];
-		for (int i = 0; i < n; i++)
-			array[i] = new int[m];
-	}
-	Matrix* Matrix::add(Matrix* m1, Matrix* m2) 
+	//Empty constructor(All default to 0).
+	Matrix2::Matrix2()
 	{
-
-		if (m1->m != m2->m or m1->n != m2->n)
-			throw;
-
-		Matrix* result = new Matrix(m1->m, m1->n);
-
-		for (int i = 0; i < result->m; i++)
-			for (int j = 0; j < result->n; j++) result->array[i][j] = m1->array[i][j] + m2->array[i][j];
-
-		return result;
+		for (int i = 0; i < 4; ++i) Row[i] = 0;
 	}
-	int Matrix::get(int i, int j) { return array[i][j]; }
-	void Matrix::set(int i, int j, int e)  { array[i][j] = e; }
-	Matrix::~Matrix() 
+	//Single fill constructor.
+	Matrix2::Matrix2(int a)
 	{
-		for (int row = 0; row < n; row++)
-			delete[] array[row];
-		delete[] array;
+		for (int i = 0; i < 4; ++i) Row[i] = a;
 	}
+	//2 row constructor.
+	Matrix2::Matrix2(int a, int b)
+	{
+		Row[0] = a, Row[1] = a,
+		Row[2] = b, Row[3] = b;
+	}
+	//4 integral constructor.
+	Matrix2::Matrix2(int a, int b, int c, int d)
+	{
+		Row[0] = a, Row[1] = b,
+		Row[2] = c, Row[3] = d;
+	}
+	//Common deconstructor.
+	Matrix2::~Matrix2() { }
+	
+	//Empty constructor(All default to 0).
+	Matrix3::Matrix3()
+	{
+		for (int i = 0; i < 9; ++i) Row[i] = 0;
+	}
+	//Single fill constructor.
+	Matrix3::Matrix3(int a)
+	{
+		for (int i = 0; i < 9; ++i) Row[i] = a;
+	}
+	//3 row constructor.
+	Matrix3::Matrix3(int a, int b, int c)
+	{
+		Row[0] = a, Row[1] = a, Row[2] = a,
+		Row[3] = b, Row[4] = b, Row[5] = b,
+		Row[6] = c, Row[7] = c, Row[8] = c;
+	}
+	//9 integral constructor.
+	Matrix3::Matrix3(int a, int b, int c, int d, int e, int f, int g, int h, int i)
+	{
+		Row[0] = a, Row[1] = b, Row[2] = c,
+		Row[3] = d, Row[4] = e, Row[5] = f,
+		Row[6] = g, Row[7] = h, Row[8] = i;
+	}
+	//Common deconstructor.
+	Matrix3::~Matrix3() { }
+
+	//Empty constructor(All default to 0).
+	Matrix4::Matrix4()
+	{
+		for (int i = 0; i < 16; ++i) Row[i] = 0;
+	}
+	//Single fill constructor.
+	Matrix4::Matrix4(int a)
+	{
+		for (int i = 0; i < 16; ++i) Row[i] = a;
+	}
+	//4 row constructor.
+	Matrix4::Matrix4(int a, int b, int c, int d)
+	{
+		Row[0] = a, Row[1] = b, Row[2] = c, Row[3] = d,
+		Row[4] = a, Row[5] = b, Row[6] = c, Row[7] = d,
+		Row[8] = a, Row[9] = b, Row[10] = c, Row[11] = d,
+		Row[12] = a, Row[13] = b, Row[14] = c, Row[15] = d;
+	}
+	//16 integral constructor.
+	Matrix4::Matrix4(int a, int b, int c, int d, int e, int f, int g, int h, int i, int j, int k, int l, int m, int n, int o, int p)
+	{
+		Row[0] = a, Row[1] = b, Row[2] = c, Row[3] = d,
+		Row[4] = e, Row[5] = f, Row[6] = g, Row[7] = h,
+		Row[8] = i, Row[9] = j, Row[10] = k, Row[11] = l,
+		Row[12] = m, Row[13] = n, Row[14] = o, Row[15] = p;
+	}
+	//Common deconstructor.
+	Matrix4::~Matrix4() { }
 }
