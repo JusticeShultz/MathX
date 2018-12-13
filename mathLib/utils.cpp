@@ -30,6 +30,7 @@ namespace MathX
 	}
 	//Return the given value to the power of the input power.
 	float power(float val, int power) { for (int i = 1; i < power; ++i) val *= val; return val; }
+	//Take the square root of a value.
 	double sqrt(double number)
 	{
 		if (number == 0) return (double)0.000000;
@@ -43,6 +44,8 @@ namespace MathX
 		}
 		return s;
 	}
+	//Lerp a value at a rate to an endpoint.
+	float Lerp(float start, float end, float amount) { return start + amount * (end - start); }
 
 	//Vector2:
 	Vector2::Vector2(void) : X(0), Y(0) { }
@@ -50,6 +53,7 @@ namespace MathX
 	Vector2::Vector2(const Vector2 & v) : X(v.X), Y(v.Y) { }
 	Vector2::Vector2(const Vector2 * v) : X(v->X), Y(v->Y) { }
 	Vector2::~Vector2(void) { }
+
 	void Vector2::Set(float xValue, float yValue) { X = xValue; Y = yValue; }
 	float Vector2::Magnitude() const { return sqrt(((X * X) + (Y * Y))); }
 	float Vector2::Length() const { return sqrt(X * X + Y * Y); }
@@ -58,6 +62,7 @@ namespace MathX
 	float Vector2::DistanceSquared(const Vector2 & v) const { return ((X - v.X) * (X - v.X)) + ((Y - v.Y) * (Y - v.Y)); }
 	float Vector2::Dot(const Vector2 & v) const { return X * v.X + Y * v.Y; }
 	float Vector2::Cross(const Vector2 & v) const { return X * v.Y + Y * v.X; }
+
 	Vector2 & Vector2::Normal() { Set(-Y, X); return *this; }
 	Vector2 & Vector2::Normalize()
 	{
@@ -79,6 +84,7 @@ namespace MathX
 	Vector3::Vector3(const Vector3 & v) : X(v.X), Y(v.Y), Z(v.Z) { }
 	Vector3::Vector3(const Vector3 * v) : X(v->X), Y(v->Y), Z(v->Z) { }
 	Vector3::~Vector3(void) { }
+
 	void Vector3::Set(float xValue, float yValue, float zValue) { X = xValue; Y = yValue; Z = zValue; }
 	float Vector3::Magnitude() const { return sqrt(((X * X) + (Y * Y) + (Z * Z))); }
 	float Vector3::Length() const { return sqrt(X * X + Y * Y + Z * Z); }
@@ -87,6 +93,7 @@ namespace MathX
 	float Vector3::DistanceSquared(const Vector3 & v) const { return ((X - v.X) * (X - v.X)) + ((Y - v.Y) * (Y - v.Y)) + ((Z - v.Z) * (Z - v.Z)); }
 	float Vector3::Dot(const Vector3 & v) const { return X * v.X + Y * v.Y + Z * v.Z; }
 	float Vector3::Cross(const Vector3 & v) const { return X * v.Y + Y * v.X + Z * v.X; }
+
 	Vector3 & Vector3::Normal() { Set(-Y, X, Z); return *this; }
 	Vector3 & Vector3::Normalize()
 	{
@@ -109,6 +116,7 @@ namespace MathX
 	Vector4::Vector4(const Vector4 & v) : X(v.X), Y(v.Y), Z(v.Z), W(v.W) { }
 	Vector4::Vector4(const Vector4 * v) : X(v->X), Y(v->Y), Z(v->Z), W(v->W) { }
 	Vector4::~Vector4(void) { }
+
 	void Vector4::Set(float xValue, float yValue, float zValue, float wValue) { X = xValue; Y = yValue; Z = zValue; W = wValue; }
 	float Vector4::Magnitude() const { return sqrt(((X * X) + (Y * Y) + (Z * Z) + (W * W))); }
 	float Vector4::Length() const { return sqrt(X * X + Y * Y + Z * Z + W * W); }
@@ -117,6 +125,7 @@ namespace MathX
 	float Vector4::DistanceSquared(const Vector4 & v) const { return ((X - v.X) * (X - v.X)) + ((Y - v.Y) * (Y - v.Y)) + ((Z - v.Z) * (Z - v.Z)) + ((W - v.W) * (W - v.W)); }
 	float Vector4::Dot(const Vector4 & v) const { return X * v.X + Y * v.Y + Z * v.Z + W * v.W; }
 	float Vector4::Cross(const Vector4 & v) const { return X * v.Y + Y * v.X + Z * v.W + W * v.Z; }
+
 	Vector4 & Vector4::Normal() { Set(-Y, X, Z, W); return *this; }
 	Vector4 & Vector4::Normalize()
 	{
@@ -133,6 +142,8 @@ namespace MathX
 		X = Y = Z = W = 0;
 		return *this;
 	}
+
+	//Matrix 2:
 
 	//Empty constructor(All default to 0).
 	Matrix2::Matrix2()
@@ -159,6 +170,8 @@ namespace MathX
 	//Common deconstructor.
 	Matrix2::~Matrix2() { delete Row; }
 	
+	//Matrix 3:
+
 	//Empty constructor(All default to 0).
 	Matrix3::Matrix3()
 	{
@@ -185,6 +198,8 @@ namespace MathX
 	}
 	//Common deconstructor.
 	Matrix3::~Matrix3() { delete Row; }
+
+	//Matrix 4:
 
 	//Empty constructor(All default to 0).
 	Matrix4::Matrix4()
@@ -215,8 +230,10 @@ namespace MathX
 	//Common deconstructor.
 	Matrix4::~Matrix4() { delete Row; }
 
-	Color::Color() { r = 0, g = 0, b = 0, a = 0; }
-	Color::Color(char v1) { r = v1, g = v1, b = v1, a = v1; }
-	Color::Color(char v1, char v2, char v3, char v4) { r = v1, g = v2, b = v3, a = v4; }
+	//Color constructors:
+
+	Color::Color() { R = 0, G = 0, B = 0, A = 0; }
+	Color::Color(char v1) { R = v1, G = v1, B = v1, A = v1; }
+	Color::Color(char v1, char v2, char v3, char v4) { R = v1, G = v2, B = v3, A = v4; }
 	Color::~Color() { }
 }
