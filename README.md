@@ -5,5 +5,6 @@
 ### Changelog:
 
 Added color with several predefinitions of common colors and a start to matrices. Note: matrices are not completed, I am currently missing: operators, rotations & scalers.
+I also added a magnitude function to the Vector2, 3 & 4.
 
 #### Currently does not support matrices or matrix scaler math. (Upcoming)
