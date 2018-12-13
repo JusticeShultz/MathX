@@ -1,5 +1,6 @@
 #include "utils.h"
 
+//MathX namespace indentifier.
 namespace MathX
 {
 	//Returns the smaller of the two values.

@@ -1,5 +1,8 @@
 ﻿#pragma once
 
+//Contains all math related functions in the MathX library.
+//(Everything resides in the MathX namespace to not cause issues porting in with other libraries)
+//(The only exception to this is if another library has a MathX namespace)
 namespace MathX
 {
 	//Defined as PI or π.
@@ -27,8 +30,10 @@ namespace MathX
 	float moveTowards(float current, float target, float maxDelta);
 	//Return the given value to the power of the input power.
 	float power(float val, int power);
+	//Return the square root of a passed value.
 	double sqrt(double x);
-	float Lerp(float start, float end, float amount);
+	//Lerp from a start to an end with a given rate.
+	float lerp(float start, float end, float amount);
 
 	class Vector2
 	{
