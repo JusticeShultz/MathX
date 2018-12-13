@@ -4,6 +4,6 @@
 
 ### Changelog:
 
-Added raylib lessons & updated the library with a sqrt function.
+Added color with several predefinitions of common colors and a start to matrices. Note: matrices are not completed, I am currently missing: operators, rotations & scalers.
 
 #### Currently does not support matrices or matrix scaler math. (Upcoming)
