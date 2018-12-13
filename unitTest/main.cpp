@@ -2,10 +2,13 @@
 #include <cassert>
 #include <iostream>
 
+//To save a lot of headache:
 using namespace MathX;
 
 int main()
 {
+	//Copy paste of the assessable unit test code, minus matrices.
+
 	// vector addition
 	Vector2 v2a(13.5f, -48.23f), v2b(5, 3.99f), v2c;
 	v2c = v2a + v2b;
@@ -83,17 +86,17 @@ int main()
 	assert("Vector3 Cross", v3c, Vector3(-2860.62011719f, 4472.00000000f, 295.01498413f));
 	assert("Vector4 Cross", v4c, Vector4(-2860.62011719f, 4472.00000000f, 295.01498413f, 0));
 
-	// vector Length
+	// vector Magnitude
 	v2a = Vector2(13.5f, -48.23f);
-	float mag2 = v2a.Length();
+	float mag2 = v2a.Magnitude();
 	v3a = Vector3(13.5f, -48.23f, 862);
-	float mag3 = v3a.Length();
+	float mag3 = v3a.Magnitude();
 	v4a = Vector4(13.5f, -48.23f, 862, 0);
-	float mag4 = v4a.Length();
+	float mag4 = v4a.Magnitude();
 
-	assert("Vector2 Length", mag2, 50.0837593079f);
-	assert("Vector3 Length", mag3, 863.453735352f);
-	assert("Vector4 Length", mag4, 863.453735352f);
+	assert("Vector2 Magnitude", mag2, 50.0837593079f);
+	assert("Vector3 Magnitude", mag3, 863.453735352f);
+	assert("Vector4 Magnitude", mag4, 863.453735352f);
 
 	// vector Normalize
 	v2a = Vector2(-13.5f, -48.23f);
@@ -107,9 +110,7 @@ int main()
 	assert("Vector3 Normalize", v3a, Vector3(0.0156349f, -0.0558571f, 0.998316f));
 	assert("Vector4 Normalize", v4a, Vector4(0.270935f, -0.0537745f, 0.961094f, 0));
 
-	//Matrixes and color not included currently.
-
-	std::cout << "Program calculated everything without errors!" << std::endl;
+	std::cout << "Somehow stuff didn't break, that's pretty neat!\n\n\n";
 	system("pause");
-	return true;
+	return 1;
 }

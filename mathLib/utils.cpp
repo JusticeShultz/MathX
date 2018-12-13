@@ -32,6 +32,8 @@ namespace MathX
 	float power(float val, int power) { for (int i = 1; i < power; ++i) val *= val; return val; }
 	double sqrt(double number)
 	{
+		if (number == 0) return (double)0.000000;
+
 		double error = 0.00001;
 		double s = number;
 
@@ -49,6 +51,7 @@ namespace MathX
 	Vector2::Vector2(const Vector2 * v) : X(v->X), Y(v->Y) { }
 	Vector2::~Vector2(void) { }
 	void Vector2::Set(float xValue, float yValue) { X = xValue; Y = yValue; }
+	float Vector2::Magnitude() const { return sqrt(((X * X) + (Y * Y))); }
 	float Vector2::Length() const { return sqrt(X * X + Y * Y); }
 	float Vector2::LengthSquared() const { return X * X + Y * Y; }
 	float Vector2::Distance(const Vector2 & v) const { return sqrt(((X - v.X) * (X - v.X)) + ((Y - v.Y) * (Y - v.Y))); }
@@ -77,6 +80,7 @@ namespace MathX
 	Vector3::Vector3(const Vector3 * v) : X(v->X), Y(v->Y), Z(v->Z) { }
 	Vector3::~Vector3(void) { }
 	void Vector3::Set(float xValue, float yValue, float zValue) { X = xValue; Y = yValue; Z = zValue; }
+	float Vector3::Magnitude() const { return sqrt(((X * X) + (Y * Y) + (Z * Z))); }
 	float Vector3::Length() const { return sqrt(X * X + Y * Y + Z * Z); }
 	float Vector3::LengthSquared() const { return X * X + Y * Y + Z * Z; }
 	float Vector3::Distance(const Vector3 & v) const { return sqrt(((X - v.X) * (X - v.X)) + ((Y - v.Y) * (Y - v.Y)) + ((Z - v.Z) * (Z - v.Z))); }
@@ -106,6 +110,7 @@ namespace MathX
 	Vector4::Vector4(const Vector4 * v) : X(v->X), Y(v->Y), Z(v->Z), W(v->W) { }
 	Vector4::~Vector4(void) { }
 	void Vector4::Set(float xValue, float yValue, float zValue, float wValue) { X = xValue; Y = yValue; Z = zValue; W = wValue; }
+	float Vector4::Magnitude() const { return sqrt(((X * X) + (Y * Y) + (Z * Z) + (W * W))); }
 	float Vector4::Length() const { return sqrt(X * X + Y * Y + Z * Z + W * W); }
 	float Vector4::LengthSquared() const { return X * X + Y * Y + Z * Z + W * W; }
 	float Vector4::Distance(const Vector4 & v) const { return sqrt(((X - v.X) * (X - v.X)) + ((Y - v.Y) * (Y - v.Y)) + ((Z - v.Z) * (Z - v.Z)) + ((W - v.W) * (W - v.W))); }
@@ -152,7 +157,7 @@ namespace MathX
 		Row[2] = c, Row[3] = d;
 	}
 	//Common deconstructor.
-	Matrix2::~Matrix2() { }
+	Matrix2::~Matrix2() { delete Row; }
 	
 	//Empty constructor(All default to 0).
 	Matrix3::Matrix3()
@@ -179,7 +184,7 @@ namespace MathX
 		Row[6] = g, Row[7] = h, Row[8] = i;
 	}
 	//Common deconstructor.
-	Matrix3::~Matrix3() { }
+	Matrix3::~Matrix3() { delete Row; }
 
 	//Empty constructor(All default to 0).
 	Matrix4::Matrix4()
@@ -208,5 +213,10 @@ namespace MathX
 		Row[12] = m, Row[13] = n, Row[14] = o, Row[15] = p;
 	}
 	//Common deconstructor.
-	Matrix4::~Matrix4() { }
+	Matrix4::~Matrix4() { delete Row; }
+
+	Color::Color() { r = 0, g = 0, b = 0, a = 0; }
+	Color::Color(char v1) { r = v1, g = v1, b = v1, a = v1; }
+	Color::Color(char v1, char v2, char v3, char v4) { r = v1, g = v2, b = v3, a = v4; }
+	Color::~Color() { }
 }
