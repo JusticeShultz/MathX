@@ -17,18 +17,18 @@ char operations in colors.
 #### Currently does not support matrices or matrix scaler math. (Upcoming)
 
 
-##Example Projects:
+## Example Projects:
 
 This math library features some basic visual examples of the math functions in action.
 
-###Catmull-Rom Spline Line Follower:
+### Catmull-Rom Spline Line Follower:
 ![alt text](https://github.com/JusticeShultz/MathLibrary/blob/master/ImageExamples/Image01.PNG)
 
-###Simple mouse following orbiter:
+### Simple mouse following orbiter:
 ![alt text](https://github.com/JusticeShultz/MathLibrary/blob/master/ImageExamples/Image02.PNG)
 
-###Simple vector math tank:
+### Simple vector math tank:
 ![alt text](https://github.com/JusticeShultz/MathLibrary/blob/master/ImageExamples/Image03.PNG)
 
-###Assassin game with a 2D "flashlight system":
+### Assassin game with a 2D "flashlight system":
 ![alt text](https://github.com/JusticeShultz/MathLibrary/blob/master/ImageExamples/Image04.PNG)
