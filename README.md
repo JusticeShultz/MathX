@@ -4,7 +4,6 @@
 
 ### Changelog:
 
-Added color with several predefinitions of common colors and a start to matrices. Note: matrices are not completed, I am currently missing: operators, rotations & scalers.
-I also added a magnitude function to the Vector2, 3 & 4.
+Added different types of splines, added a few new examples and updated existing ones. Completed interpolation, curves & splines and changed a few syntactical things in the math library. Library documentation updated. Some things now use templates to allow for more dynamic usage. Library now has colors, predefined colors and color operations.
 
 #### Currently does not support matrices or matrix scaler math. (Upcoming)
