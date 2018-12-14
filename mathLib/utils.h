@@ -1,12 +1,19 @@
 ﻿#pragma once
+#pragma region Includes
 //CMath was included to allow use of sin, cos & tan functions.
 #include <cmath>
-
+//String to parse when seeding randoms.
+#include <string>
+//Time to generate a "random" seed.
+#include <time.h>
+#pragma endregion
+#pragma region MathX
 //Contains all math related functions in the MathX library.
 //(Everything resides in the MathX namespace to not cause issues porting in with other libraries)
 //(The only exception to this is if another library has a MathX namespace)
 namespace MathX
 {
+	#pragma region Definitions
 	//Full circle in degrees.
 	#define FULLCIRCLE 360
 	//Half circle in degrees.
@@ -27,43 +34,67 @@ namespace MathX
 	#define DEG2RAD (PI/180.0f)
 	//Multiply this with a angle measure expressed in radians to get its equivalent in degrees.
 	#define RAD2DEG (180.0f/PI)
+	#pragma endregion Definitions for things such as PI or Degree to Radians.
 
+	#pragma region MathFunctions
 	//Returns the smaller of the two values.
-	int min(int a, int b);
+	template <typename T> T  Min(T a, T b) { return a < b ? a : b; }
 	//Returns the larger of the two values.
-	int max(int a, int b);
-	//Returns if the values are equal.
-	bool equal(int a, int b);
+	template <typename T> T  Max(T a, T b) { return a > b ? a : b; }
 	//Returns a value no smaller than min and no larger than max.
-	int clamp(int value, int min, int max);
+	template <typename T> T Clamp(T value, T min, T max)
+	{
+		if (value > max) value = max;
+		if (value < min) value = min;
+		return value;
+	}
 	//Returns the absolute value of val.
-	int absVal(int val);
+	template <typename T> T  AbsVal(T val) { if (val < 0) val *= -1; return val; }
+	//Returns if the values are equal.
+	template <typename T> bool Equal(T a, T b) { return a == b; }
 	//Returns base to the power of exp (i.e. basepower).
-	bool isPowerOfTwo(int val);
+	template <typename T> bool IsPowerOfTwo(T val) { return (val & (val - 1)) == 0; }
 	//Returns the next power of two after the given value.
-	int nextPowerOfTwo(int val);
-	//Moves the current value towards the target value. The maximum change should not exceed maxDelta.
-	float moveTowards(float current, float target, float maxDelta);
+	template <typename T> T  NextPowerOfTwo(T val) { if ((val & (val - 1)) == 0) ++val; return val; }
+	//Moves the current value towards the target value. The maximum change should not exceed maxDelta. Might as well be named Lerp.
+	template <typename T> T  MoveTowards(T current, T target, T maxDelta)
+	{
+		if (current < target && current + maxDelta < target) current += maxDelta;
+		if (current > target && current - maxDelta > target) current -= maxDelta;
+		return current;
+	}
 	//Return the given value to the power of the input power.
-	float power(float val, int power);
-	//Return the square root of a passed value.
-	double sqrt(double x);
+	template <typename T> T  Power(T val, T power) { for (int i = 1; i < power; ++i) val *= val; return val; }
+	//Take the square root of a value.
+	template <typename T> T Sqrt(T number)
+	{
+		if (number == 0) return (T)0.000000;
+
+		double error = 0.00001;
+		double s = number;
+
+		while ((s - number / s) > error)
+		{
+			s = (s + number / s) / 2;
+		}
+		return s;
+	}
 	
 	//Simple action sequence to ease in using a sin function.
-	template <typename T> T easeInSine(float t, const T& b, const T& c, float d) { return b + c - c * cosf(t / d * HALF_PI); }
+	template <typename T> T EaseInSine(float t, const T& b, const T& c, float d) { return b + c - c * cosf(t / d * HALF_PI); }
 	//Simple action sequence to ease in using a linear function.
-	template <typename T> T linearEase(float t, const T& b, const T& c, float d) { return b + c * (t / d); }
-	//Simple action sequence to ease in using a lerp function.
-	template <typename T> T lerp(const T& a, const T& b, float t) { return a + (b - a) * t; }
-	template <typename T> T quadraticBezier(const T& a, const T& b, const T& c, float t) { T x = lerp(a, b, t); T y = lerp(b, c, t); return lerp(x, y, t); }
-	template <typename T> T cubicBezier(const T& a, const T& b, const T& c, const T& d, float t) 
+	template <typename T> T LinearEase(float t, const T& b, const T& c, float d) { return b + c * (t / d); }
+	//Simple action sequence to ease in using a Lerp function.
+	template <typename T> T Lerp(const T& a, const T& b, float t) { return a + (b - a) * t; }
+	template <typename T> T QuadraticBezier(const T& a, const T& b, const T& c, float t) { T x = Lerp(a, b, t); T y = Lerp(b, c, t); return Lerp(x, y, t); }
+	template <typename T> T CubicBezier(const T& a, const T& b, const T& c, const T& d, float t) 
 	{ 
-		T x = lerp(a, b, t); 
-		T y = lerp(b, c, t); 
-		T z = lerp(c, d, t); 
+		T x = Lerp(a, b, t); 
+		T y = Lerp(b, c, t); 
+		T z = Lerp(c, d, t); 
 		return quadraticBezier(x, y, z, t); 
 	}
-	template <typename T> T hermiteCurve(const T& p0, const T& t0, const T& p1, const T& t1, float t)
+	template <typename T> T HermiteCurve(const T& p0, const T& t0, const T& p1, const T& t1, float t)
 	{ 
 		// calculate the time-step squared and cubed 
 		float tt = t * t; float ttt = tt * t; 
@@ -75,7 +106,7 @@ namespace MathX
 		// combine points and tangents 
 		return p0 * h00 + t0 * h10 + p1 * h01 + t1 * h11; 
 	}
-	template <typename T> T catmullRomSpline(const T* controlPoints, size_t count, float t) 
+	template <typename T> T CatmullRomSpline(const T* controlPoints, size_t count, float t) 
 	{
 		//assert(count > 1); 
 
@@ -106,9 +137,11 @@ namespace MathX
 		float s = fmod(t, stepDuration) / stepDuration;
 
 		// return curve result 
-		return hermiteCurve(controlPoints[p0], t0, controlPoints[p1], t1, s);
+		return HermiteCurve(controlPoints[p0], t0, controlPoints[p1], t1, s);
 	}
-	
+	#pragma endregion All the functions that preform a template based action.
+
+	#pragma region Vectors
 	class Vector2
 	{
 	public:
@@ -441,7 +474,9 @@ namespace MathX
 		//Simple decrement operator.
 		Vector4 & operator -- (int z) { --X, --Y, --Z, --W; return *this; };
 	};
+	#pragma endregion Vector declerations.
 
+	#pragma region Complex
 	typedef struct Quaternion
 	{
 		float X;
@@ -548,6 +583,7 @@ namespace MathX
 		Color & operator -- (int z) { --R, --G, --B, --A; return *this; };
 	};
 
+	#pragma region colorDecls
 	//Predefined light gray.
 	#define Light_Gray Color{ 200, 200, 200, 255 }
 	//Predefined gray.
@@ -602,6 +638,7 @@ namespace MathX
 	#define Magenta Color{ 255, 0, 255, 255 } 
 	//Predefined webpage white.
 	#define Webpage_White Color{ 245, 245, 245, 255 }
+	#pragma endregion colorDecls
 
 	//NOTE: Matrices are not completed due to lack of documentation on the handbook
 	class Matrix2
@@ -694,15 +731,115 @@ namespace MathX
 		~Matrix4();
 	};
 
+	class Random
+	{
+	private:
+		int Seed;
+	public:
+		Random() {}
+		
+		//Returns a random value between min and max
+		template <typename T> T rand(T min, T max)
+		{
+			//Do a modulo gen first.
+			T a = Seed % (max - min) + min;
 
-	//[Deprecated]
+			//Make a new seed off of our current seed.
+			reseed();
+			//Return the result.
+			return a;
+		};
+
+		//Returns a random value between min and max
+		// - the value may contain decimal components
+		//(MAKE SURE YOU PASS 2 DOUBLES OR 2 FLOATS IF YOU WANT DECIMAL POINT RETURNS!)
+		template <typename T> T randDecimal(T min, T max)
+		{
+			T q = (min + max * Seed / Seed * Seed / max * min - max) * 0.01;
+
+			reseed();
+
+			T rando = std::fmod(Seed, (max - min) + min);
+
+			return Clamp(q * 0.000001 + rando, (double)min, (double)max);
+		};
+
+		//[SETTER] Uses system time to seed a new value.
+		void setRandSeed() { seed((time(NULL) * time(NULL))); };
+		//Give a starting seed. This seed will be what we seed off of. (Recommended to use the systems time - Use setRandSeed() for easy use!)
+		void seed(unsigned int value)
+		{
+			Seed = value;
+
+			//Square it.
+			Seed = Seed * Seed;
+
+			//Parse the seed down to 6 characters.
+			std::string temp = std::to_string(Seed);
+
+			//Make sure the seed is the required size.
+			while (temp.size() < 9)
+			{
+				//If it's not then square it and set it until it is.
+				Seed = Seed * Seed;
+				temp = std::to_string(Seed);
+			}
+
+			//Prune the seed down to 9 digits.
+			while (temp.size() > 9) temp.pop_back();
+
+			//Prune the front 3 digits of the seed.
+			std::string temp2;
+
+			//Push forward the last 6 digits.
+			for (int i = 2; i < temp.size(); ++i)
+			{
+				temp2.push_back(temp[i]);
+			}
+
+			//Set the seed to the result.
+			Seed = std::stoi(temp2);
+		};
+
+		//If you have previously seeded the value, use this
+		void reseed()
+		{
+			//Square it.
+			Seed = Seed * Seed;
+
+			//Parse the seed down to 6 characters.
+			std::string temp = std::to_string(Seed);
+
+			//Prune the seed down to 9 digits.
+			while (temp.size() > 9) temp.pop_back();
+
+			//Prune the front 3 digits of the seed.
+			std::string temp2;
+
+			//Push forward the last 6 digits.
+			for (int i = 2; i < temp.size(); ++i)
+			{
+				temp2.push_back(temp[i]);
+			}
+			
+			//Set the seed to the result.
+			Seed = std::stoi(temp2);
+		};
+	};
+	#pragma endregion Complex math functions such as matrices, randoms, colors and quaternions.
+
+	#pragma region [DEPRECATED]
 	///Lerp from a start to an end with a given rate. 
-	///float lerp(float start, float end, float amount);
-	///template <typename T> T lerp(const T& a, const T& b, float t);
-	///Vector2 hermiteCurve(Vector2 point0, Vector2 tangent0, Vector2 point1, Vector2 tangent1, float t)
+	///float Lerp(float start, float end, float amount);
+	///template <typename T> T Lerp(const T& a, const T& b, float t);
+	///Vector2 HermiteCurve(Vector2 point0, Vector2 tangent0, Vector2 point1, Vector2 tangent1, float t)
 	///{
 	/// calculate t-squared and t-cubed​ float tsq = t * t; float tcub = tsq * t; // calculate the 4 basis functions​ 
 	///float h00 = 2 * tcub - 3 * tsq + 1; float h01 = -2 * tcub + 3 * tsq; float h10 = tcub - 2 * tsq + t; float h11 = tcub - tsq;
 	/// return the combined result​ return h00 * point0 + h10 * tangent0 + h01 * point1 + h11 * tangent1;
 	///};
+	///template <typename T> T rand(T min, T max) { static long a = Seed; a = (a * 32719 + 3) % 32749; return ((a % max) + min); };
+	///double d = 5  %3.3d;
+	#pragma endregion
 }
+#pragma endregion

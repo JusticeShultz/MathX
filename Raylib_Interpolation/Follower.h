@@ -15,15 +15,15 @@ public:
 
 	void Draw()
 	{
-		DisplayedHealth = MathX::lerp(DisplayedHealth, Health, 0.03f);
+		DisplayedHealth = MathX::Lerp(DisplayedHealth, Health, 0.03f);
 
-		Health = MathX::clamp(Health, 0, 100);
-		Position = MathX::lerp(Position, Destination, 0.05f);
+		Health = MathX::Clamp((int)Health, 0, 100);
+		Position = MathX::Lerp(Position, Destination, 0.05f);
 		DrawCircle(Position.X, Position.Y, 25, RED);
 		DrawLine(Position.X, Position.Y, Destination.X, Destination.Y, GREEN);
 		
-		float PosX = MathX::clamp(Position.X - 125, 0, GetScreenWidth() - 250);
-		float PosY = MathX::clamp(Position.Y - 65, 0, GetScreenHeight() - 25);
+		float PosX = MathX::Clamp((float)Position.X - 125, (float)0, (float)GetScreenWidth() - 250);
+		float PosY = MathX::Clamp((float)Position.Y - 65, (float)0, (float)GetScreenHeight() - 25);
 
 		DrawRectangle(PosX, PosY, 250, 25, RED);
 

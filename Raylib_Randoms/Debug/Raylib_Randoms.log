@@ -12,13 +12,11 @@ c:\users\s189081\source\repos\mathlib\mathlib\utils.h(559): warning C4244: 'argu
 c:\users\s189081\source\repos\mathlib\mathlib\utils.h(562): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 c:\users\s189081\source\repos\mathlib\mathlib\utils.h(565): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 c:\users\s189081\source\repos\mathlib\mathlib\utils.h(568): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(757): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(784): warning C4018: '<': signed/unsigned mismatch
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(808): warning C4018: '<': signed/unsigned mismatch
-c:\users\s189081\source\repos\mathlib\raylib_trigreview\orbital.h(13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\s189081\source\repos\mathlib\raylib_trigreview\orbital.h(26): warning C4305: '+=': truncation from 'double' to 'float'
-c:\users\s189081\source\repos\mathlib\raylib_trigreview\orbital.h(26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\raylib_trigreview\player.h(16): warning C4018: '<': signed/unsigned mismatch
-c:\users\s189081\source\repos\mathlib\raylib_trigreview\player.h(17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\raylib_trigreview\main.cpp(7): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Raylib_TrigReview.vcxproj -> C:\Users\s189081\source\repos\mathLib\Debug\Raylib_TrigReview.exe
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(759): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(786): warning C4018: '<': signed/unsigned mismatch
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(811): warning C4018: '<': signed/unsigned mismatch
+c:\users\s189081\source\repos\mathlib\raylib_randoms\main.cpp(52): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_randoms\main.cpp(62): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_randoms\main.cpp(63): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_randoms\main.cpp(67): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Raylib_Randoms.vcxproj -> C:\Users\s189081\source\repos\mathLib\Debug\Raylib_Randoms.exe

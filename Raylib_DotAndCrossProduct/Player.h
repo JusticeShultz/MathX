@@ -19,13 +19,13 @@ int Player::Update(V2 pos1, int a)
 
 	if (IsKeyDown(KEY_W) || IsMouseButtonDown(MOUSE_RIGHT_BUTTON))
 	{
-		Position.X = MathX::moveTowards(Position.X, GetMouseX(), 2);
-		Position.Y = MathX::moveTowards(Position.Y, GetMouseY(), 2);
+		Position.X = MathX::MoveTowards((float)Position.X, (float)GetMouseX(), (float)2);
+		Position.Y = MathX::MoveTowards((float)Position.Y, (float)GetMouseY(), (float)2);
 	}
 
 	if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
 	{
-		DrawCircle(MathX::moveTowards(Position.X, GetMouseX(), 10), MathX::moveTowards(Position.Y, GetMouseY(), 10), 8, RED);
+		DrawCircle(MathX::MoveTowards((float)Position.X, (float)GetMouseX(), (float)10), MathX::MoveTowards((float)Position.Y, (float)GetMouseY(), (float)10), 8, RED);
 
 		float distance = Position.Distance(pos1);
 		

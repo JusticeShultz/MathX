@@ -1,52 +1,10 @@
 #include "utils.h"
 #include <cmath>
-
+#pragma region MathX
 //MathX namespace indentifier.
 namespace MathX
 {
-	//Returns the smaller of the two values.
-	int min(int a, int b) { return a < b ? a : b; }
-	//Returns the larger of the two values.
-	int max(int a, int b) { return a > b ? a : b; }
-	//Returns if the values are equal.
-	bool equal(int a, int b) { return a == b; }
-	//Returns a value no smaller than min and no larger than max.
-	int clamp(int value, int min, int max)
-	{
-		if (value > max) value = max;
-		if (value < min) value = min;
-		return value;
-	}
-	//Returns the absolute value of val.
-	int absVal(int val) { if (val < 0) val *= -1; return val; }
-	//Returns base to the power of exp (i.e. basepower).
-	bool isPowerOfTwo(int val) { return (val & (val - 1)) == 0; }
-	//Returns the next power of two after the given value.
-	int nextPowerOfTwo(int val) { if ((val & (val - 1)) == 0) ++val; return val; }
-	//Moves the current value towards the target value. The maximum change should not exceed maxDelta. Might as well be named lerp.
-	float moveTowards(float current, float target, float maxDelta)
-	{
-		if (current < target && current + maxDelta < target) current += maxDelta;
-		if (current > target && current - maxDelta > target) current -= maxDelta;
-		return current;
-	}
-	//Return the given value to the power of the input power.
-	float power(float val, int power) { for (int i = 1; i < power; ++i) val *= val; return val; }
-	//Take the square root of a value.
-	double sqrt(double number)
-	{
-		if (number == 0) return (double)0.000000;
-
-		double error = 0.00001;
-		double s = number;
-
-		while ((s - number / s) > error)
-		{
-			s = (s + number / s) / 2;
-		}
-		return s;
-	}
-
+	#pragma region Vectors
 	//Vector2:
 	Vector2::Vector2(void) : X(0), Y(0) { }
 	Vector2::Vector2(float xValue, float yValue) : X(xValue), Y(yValue) { }
@@ -142,7 +100,9 @@ namespace MathX
 		X = Y = Z = W = 0;
 		return *this;
 	}
+	#pragma endregion Definitions of vectors.
 
+	#pragma region Matrices
 	//Matrix 2:
 
 	//Empty constructor(All default to 0).
@@ -229,16 +189,21 @@ namespace MathX
 	}
 	//Common deconstructor.
 	Matrix4::~Matrix4() { delete Row; }
+	#pragma endregion Definitions for matrices.
 
+	#pragma region Color
 	//Color constructors:
 
 	Color::Color() { R = 0, G = 0, B = 0, A = 0; }
 	Color::Color(int v1) { R = v1, G = v1, B = v1, A = v1; }
 	Color::Color(int v1, int v2, int v3, int v4) { R = v1, G = v2, B = v3, A = v4; }
 	Color::~Color() { }
+	#pragma endregion Definitions for color.
 
-	//List of all deprecated functions - kept for possible future use or reference.
-	///[Deprecated]
-	///float lerp(float start, float end, float amount) { return start + amount * (end - start); }
-	///template <typename T> T lerp(const T& a, const T& b, float t) { return a * (1 - t) + b * t; }
+	#pragma region [DEPRECATED]
+	///List of all deprecated functions - kept for possible future use or reference.
+	///float Lerp(float start, float end, float amount) { return start + amount * (end - start); }
+	///template <typename T> T Lerp(const T& a, const T& b, float t) { return a * (1 - t) + b * t; }
+	#pragma endregion
 }
+#pragma endregion

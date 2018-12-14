@@ -17,10 +17,10 @@ public:
 		if(State != Clicked) DrawRectangle(Position.X, Position.Y, 260, 60, Color{ (unsigned char)Tint1.R, (unsigned char)Tint1.G, (unsigned char)Tint1.B, 100 });
 		DrawRectangle(Position.X, Position.Y, 250, 50, Color{ (unsigned char)Tint1.R, (unsigned char)Tint1.G, (unsigned char)Tint1.B, (unsigned char)Tint1.A });
 
-		if (State == Idle) Tint1 = MathX::lerp(Tint1, Tint2, 0.025);
-		if (State == Hovered) Tint1 = MathX::lerp(Tint1, Tint3, 0.025);
-		if (State == Clicked) Tint1 = MathX::lerp(Tint1, Tint4, 0.025);
-		if (State == Disabled) Tint1 = MathX::lerp(Tint1, Tint5, 0.025);
+		if (State == Idle) Tint1 = MathX::Lerp(Tint1, Tint2, 0.025);
+		if (State == Hovered) Tint1 = MathX::Lerp(Tint1, Tint3, 0.025);
+		if (State == Clicked) Tint1 = MathX::Lerp(Tint1, Tint4, 0.025);
+		if (State == Disabled) Tint1 = MathX::Lerp(Tint1, Tint5, 0.025);
 		
 		if (Active)
 		{

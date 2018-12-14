@@ -1,24 +1,29 @@
 ﻿  main.cpp
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(20): warning C4005: 'PI': macro redefinition
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(24): warning C4005: 'PI': macro redefinition
   c:\users\s189081\source\repos\mathlib\thirdparty\raylib\raylib.h(86): note: see previous definition of 'PI'
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(53): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(471): warning C4091: 'typedef ': ignored on left of 'MathX::Quaternion' when no variable is declared
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(496): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(524): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(526): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(528): warning C4244: '*=': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(530): warning C4244: '/=': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(533): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(536): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(539): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(542): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(79): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(497): warning C4091: 'typedef ': ignored on left of 'MathX::Quaternion' when no variable is declared
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(522): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(550): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(552): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(554): warning C4244: '*=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(556): warning C4244: '/=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(559): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(562): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(565): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(568): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(757): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(784): warning C4018: '<': signed/unsigned mismatch
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(808): warning C4018: '<': signed/unsigned mismatch
 c:\users\s189081\source\repos\mathlib\raylib_dotandcrossproduct\enemy.h(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\raylib_dotandcrossproduct\enemy.h(28): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 c:\users\s189081\source\repos\mathlib\raylib_dotandcrossproduct\enemy.h(40): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 c:\users\s189081\source\repos\mathlib\raylib_dotandcrossproduct\enemy.h(40): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 c:\users\s189081\source\repos\mathlib\raylib_dotandcrossproduct\player.h(18): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\raylib_dotandcrossproduct\player.h(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s189081\source\repos\mathlib\raylib_dotandcrossproduct\player.h(23): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s189081\source\repos\mathlib\raylib_dotandcrossproduct\player.h(28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 c:\users\s189081\source\repos\mathlib\raylib_dotandcrossproduct\player.h(28): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(75): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  c:\users\s189081\source\repos\mathlib\raylib_dotandcrossproduct\enemy.h(28): note: see reference to function template instantiation 'T MathX::Sqrt<float>(T)' being compiled
+          with
+          [
+              T=float
+          ]
   Raylib_DotAndCrossProduct.vcxproj -> C:\Users\s189081\source\repos\mathLib\Debug\Raylib_DotAndCrossProduct.exe

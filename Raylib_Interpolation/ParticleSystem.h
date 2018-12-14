@@ -22,7 +22,7 @@ public:
 		if (Alive)
 		{
 			//Raylib has no operators so a temp color was used.
-			ConversionColor = MathX::lerp(ConversionColor.A, 0, 0.01f + (Lifetime * 0.01));
+			ConversionColor = MathX::Lerp(ConversionColor.A, 0, 0.01f + (Lifetime * 0.01));
 			Color temp;
 			temp.r = (const char)255;
 			temp.g = (const char)0;
