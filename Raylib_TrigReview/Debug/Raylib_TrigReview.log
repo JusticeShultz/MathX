@@ -1,7 +1,17 @@
 ﻿  main.cpp
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(6): warning C4005: 'PI': macro redefinition
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(20): warning C4005: 'PI': macro redefinition
   c:\users\s189081\source\repos\mathlib\thirdparty\raylib\raylib.h(86): note: see previous definition of 'PI'
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(385): warning C4091: 'typedef ': ignored on left of 'MathX::Quaternion' when no variable is declared
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(53): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(471): warning C4091: 'typedef ': ignored on left of 'MathX::Quaternion' when no variable is declared
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(496): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(524): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(526): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(528): warning C4244: '*=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(530): warning C4244: '/=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(533): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(536): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(539): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(542): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 c:\users\s189081\source\repos\mathlib\raylib_trigreview\orbital.h(13): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
 c:\users\s189081\source\repos\mathlib\raylib_trigreview\orbital.h(26): warning C4305: '+=': truncation from 'double' to 'float'
 c:\users\s189081\source\repos\mathlib\raylib_trigreview\orbital.h(26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data

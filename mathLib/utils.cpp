@@ -1,4 +1,5 @@
 #include "utils.h"
+#include <cmath>
 
 //MathX namespace indentifier.
 namespace MathX
@@ -45,8 +46,6 @@ namespace MathX
 		}
 		return s;
 	}
-	//Lerp a value at a rate to an endpoint.
-	float Lerp(float start, float end, float amount) { return start + amount * (end - start); }
 
 	//Vector2:
 	Vector2::Vector2(void) : X(0), Y(0) { }
@@ -234,7 +233,12 @@ namespace MathX
 	//Color constructors:
 
 	Color::Color() { R = 0, G = 0, B = 0, A = 0; }
-	Color::Color(char v1) { R = v1, G = v1, B = v1, A = v1; }
-	Color::Color(char v1, char v2, char v3, char v4) { R = v1, G = v2, B = v3, A = v4; }
+	Color::Color(int v1) { R = v1, G = v1, B = v1, A = v1; }
+	Color::Color(int v1, int v2, int v3, int v4) { R = v1, G = v2, B = v3, A = v4; }
 	Color::~Color() { }
+
+	//List of all deprecated functions - kept for possible future use or reference.
+	///[Deprecated]
+	///float lerp(float start, float end, float amount) { return start + amount * (end - start); }
+	///template <typename T> T lerp(const T& a, const T& b, float t) { return a * (1 - t) + b * t; }
 }

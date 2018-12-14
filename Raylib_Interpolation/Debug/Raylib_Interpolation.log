@@ -1,0 +1,58 @@
+﻿  main.cpp
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(20): warning C4005: 'PI': macro redefinition
+  c:\users\s189081\source\repos\mathlib\thirdparty\raylib\raylib.h(86): note: see previous definition of 'PI'
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(53): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(471): warning C4091: 'typedef ': ignored on left of 'MathX::Quaternion' when no variable is declared
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(496): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(524): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(526): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(528): warning C4244: '*=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(530): warning C4244: '/=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(533): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(536): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(539): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(542): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\waypoint.h(11): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\particlesystem.h(25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\particlesystem.h(25): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\particlesystem.h(36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\particlesystem.h(66): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\particlesystem.h(78): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\follower.h(20): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\follower.h(20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\follower.h(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\follower.h(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\follower.h(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\follower.h(25): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\follower.h(26): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\follower.h(26): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\follower.h(28): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\follower.h(30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\follower.h(32): warning C4018: '<': signed/unsigned mismatch
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\follower.h(37): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\follower.h(36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\follower.h(36): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\follower.h(56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\follower.h(56): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\button.h(17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\button.h(18): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\button.h(20): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\button.h(21): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\button.h(22): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\button.h(23): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\popin.h(34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\main.cpp(12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\main.cpp(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\main.cpp(42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\main.cpp(77): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\main.cpp(82): warning C4018: '<': signed/unsigned mismatch
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\main.cpp(100): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\main.cpp(103): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\raylib_interpolation\main.cpp(106): warning C4018: '<': signed/unsigned mismatch
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(57): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  c:\users\s189081\source\repos\mathlib\raylib_interpolation\particlesystem.h(25): note: see reference to function template instantiation 'T MathX::lerp<int>(const T &,const T &,float)' being compiled
+          with
+          [
+              T=int
+          ]
+  Raylib_Interpolation.vcxproj -> C:\Users\s189081\source\repos\mathLib\Debug\Raylib_Interpolation.exe
