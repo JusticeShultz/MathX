@@ -1,6 +1,6 @@
 # MathX
 
-## MathX is a generic math library built for use of simple math functions. This library supports basics including vector2's, vector3's & vector4's - each with their own operators and math functions to support them.
+## MathX is a generic math library built for use of simple math functions. This library supports basics including vector2's, vector3's & vector4's - each with their own operators and math functions to support them. Lines, curves, colors, vector operations, etc are also included for more complex functionality.
 
 ### Changelog:
 
