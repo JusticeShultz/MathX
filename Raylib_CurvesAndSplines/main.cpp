@@ -15,10 +15,10 @@ int main()
 	points.push_back({ 200 + 75, 300 }); 
 	points.push_back({ 200 + 625, 300 }); 
 	points.push_back({ 200 + 450, 500 });
-	points.push_back({ 200 + 100, 570 });
-	points.push_back({ 200 + 400, 600 });
-	points.push_back({ 200 + 200, 700 });
-	points.push_back({ 200 + 600, 800 });
+	//points.push_back({ 200 + 100, 570 });
+	//points.push_back({ 200 + 400, 600 });
+	//points.push_back({ 200 + 200, 700 });
+	//points.push_back({ 200 + 600, 800 });
 	
 	// last needed to store previous interpolated position 
 	MathX::Vector2 last = MathX::catmullRomSpline(points.data(), points.size(), 0);
@@ -39,23 +39,26 @@ int main()
 		{
 			MathX::Vector2 curr = MathX::catmullRomSpline(points.data(), points.size(), i / 50.0f);
 
-			DrawLine(last.X, last.Y, curr.X, curr.Y, SKYBLUE);
+			DrawLine(last.X, last.Y, curr.X, curr.Y, GRAY);
 
 			last = curr;
 		}
 
 		for (int i = 0; i < points.size(); ++i)
 		{
-			DrawCircleLines(points[i].X, points[i].Y, 15, WHITE);
-
 			if (CheckCollisionPointCircle(GetMousePosition(), Vector2{ points[i].X, points[i].Y }, 15))
 			{
 				if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
 				{
+					DrawCircleLines(points[i].X, points[i].Y, 15, Yellow);
 					points[i].X = GetMouseX();
 					points[i].Y = GetMouseY();
 				}
+				else
+					DrawCircleLines(points[i].X, points[i].Y, 15, Orange);
 			}
+			else
+				DrawCircleLines(points[i].X, points[i].Y, 15, WHITE);
 		}
 		
 		MathX::Vector2 pos_curr = MathX::catmullRomSpline(points.data(), points.size(), QQ / 50.0f);
@@ -71,7 +74,7 @@ int main()
 
 		Position = MathX::lerp(Position, pos_curr, 1.05f);
 
-		DrawCircle(Position.X, Position.Y, 15, YELLOW);
+		DrawCircle(Position.X, Position.Y, 15, RAYWHITE);
 		EndDrawing();
 	}
 

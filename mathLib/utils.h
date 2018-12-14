@@ -603,7 +603,7 @@ namespace MathX
 	//Predefined webpage white.
 	#define Webpage_White Color{ 245, 245, 245, 255 }
 
-	//NOTE: Matrices are not completed due to lack of documentation on the handbook(cough, cough Terry)
+	//NOTE: Matrices are not completed due to lack of documentation on the handbook
 	class Matrix2
 	{
 	public:
