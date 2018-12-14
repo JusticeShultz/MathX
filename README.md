@@ -17,7 +17,7 @@ char operations in colors.
 #### Currently does not support matrices or matrix scaler math. (Upcoming)
 
 
-## Example Projects:
+# Example Projects:
 
 This math library features some basic visual examples of the math functions in action.
 
