@@ -21,7 +21,7 @@ char operations in colors.
 
 This math library features some basic visual examples of the math functions in action.
 
-### Catmull-Rom Spline Line Follower:
+### Dynamic Editable Catmull-Rom Spline Line Follower:
 ![alt text](https://github.com/JusticeShultz/MathLibrary/blob/master/ImageExamples/Image01.PNG)
 
 ### Simple mouse following orbiter:
