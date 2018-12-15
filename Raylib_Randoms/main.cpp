@@ -11,7 +11,7 @@ int main()
 	int screenWidth = 800;
 	int screenHeight = 500;
 	InitWindow(screenWidth, screenHeight, "Randomization Example - MathX Custom Math Library");
-	SetTargetFPS(5000);
+	SetTargetFPS(4000);
 	MathX::Random randNum;
 	randNum.setRandSeed();
 
@@ -61,7 +61,7 @@ int main()
 			points.back() = Position;
 			TravelTo.X = randNum.rand(0, GetScreenWidth());
 			TravelTo.Y = randNum.rand(0, GetScreenHeight());
-			std::cout << "1 second past, new position: " <<TravelTo.X << ", " << TravelTo.Y << std::endl;
+			//std::cout << "1 second past, new position: " <<TravelTo.X << ", " << TravelTo.Y << std::endl;
 		}
 
 		DrawCircle(Position.X, Position.Y, 25, RED);
