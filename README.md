@@ -1,10 +1,19 @@
-# MathX V1.1214.39
+# MathX V1.20.42
 
-## MathX is a generic math library built for use of simple math functions. This library supports basics including vector2's, vector3's & vector4's - each with their own operators and math functions to support them. Lines, curves, colors, vector operations, etc are also included for more complex functionality.
+## MathX is a generic math library built for use of simple/commonly needed math functions that are generally used in games. This library supports dynamic operators and a wide range of different functions. Lines, curves, colors, etc are also included for more complex functionality.
 
 ### Changelog:
-Added a random class to generate seeds, numbers & decimal numbers as well as adding an example raylib project with a wandering sprite that draws lines. Code now folds much more nicely using pragma regions.
+Code has been cleaned up significantly. 
 
+All operations are now in capital lettering format. 
+The == operator now correctly handles floating point operators. 
+Custom unit test functions added, the ability to check implemented types and floating point types has been added. 
+Unit test now has all available tests. 
+Normalize functions for Vector2, Vector3 & Vector4 now work correctly. 
+Added a FLOATMIN definition to make sure floats == operations work correctly due to floating point number data loss. 
+Added documentation to all functions that were missing it.
+Converted ALL of the examples to use the correct capitalization method.
+Fixed angle betweens redundant code.
 
 ### Deprecated as of this patch:
 float lerps, 
@@ -15,13 +24,14 @@ char literal system,
 char operations in colors, 
 lowercase operations, 
 bounders.
+non templated types.
 
 #### Currently does not support matrices or matrix scaler math. (Upcoming)
 
 
 # Example Projects:
 
-This math library features some basic visual examples of the math functions in action.
+This math library features some basic visual examples of the math functions in action using a cpp library named Raylib.
 
 ### Dynamic Editable Catmull-Rom Spline Line Follower:
 ![alt text](https://github.com/JusticeShultz/MathLibrary/blob/master/ImageExamples/Image01.PNG)

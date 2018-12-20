@@ -29,11 +29,7 @@ namespace MathX
 	Vector2 Vector2::GetScale(const Vector2 scale) { return Vector2(X * scale.X, Y * scale.Y); };
 	float Vector2::AngleBetweenDegrees(const Vector2 other)
 	{
-		Vector2 VectorCalculation = { X - other.X, Y - other.Y };
-		float normal = sqrt(VectorCalculation.X * VectorCalculation.X + VectorCalculation.Y * VectorCalculation.Y);
-		VectorCalculation.X = VectorCalculation.X / normal;
-		VectorCalculation.Y = VectorCalculation.Y / normal;
-		return atan2(VectorCalculation.Y, VectorCalculation.X) * RAD2DEG;
+		return AngleBetweenRadians(other) *RAD2DEG;
 	}
 	float Vector2::AngleBetweenRadians(const Vector2 other)
 	{
@@ -48,16 +44,19 @@ namespace MathX
 	Vector2 & Vector2::Normal() { Set(-Y, X); return *this; }
 	Vector2 & Vector2::Normalize()
 	{
-		if (Length() != 0)
+		float len = Length();
+
+		if (len < FLOATMIN)
 		{
-			float length = LengthSquared();
-			X /= length;
-			Y /= length;
+			X = Y = 0.f;
 			return *this;
 		}
-
-		X = Y = 0;
-		return *this;
+		else
+		{
+			float mult = 1 / len;
+			X *= mult; Y *= mult;
+			return *this;
+		}
 	}
 
 	//Vector 3:
@@ -91,17 +90,19 @@ namespace MathX
 	Vector3 & Vector3::Normal() { Set(-Y, X, Z); return *this; }
 	Vector3 & Vector3::Normalize()
 	{
-		if (Length() != 0)
+		float len = Length();
+
+		if (len < FLOATMIN)
 		{
-			float length = LengthSquared();
-			X /= length;
-			Y /= length;
-			Z /= length;
+			X = Y = Z = 0.f;
 			return *this;
 		}
-
-		X = Y = Z = 0;
-		return *this;
+		else
+		{
+			float mult = 1 / len;
+			X *= mult; Y *= mult; Z *= mult;
+			return *this;
+		}
 	}
 
 	//Vector 4:
@@ -133,19 +134,21 @@ namespace MathX
 	Vector4 & Vector4::Normal() { Set(-Y, X, Z, W); return *this; }
 	Vector4 & Vector4::Normalize()
 	{
-		if (Length() != 0)
+		float len = Length();
+
+		if (len < FLOATMIN)
 		{
-			float length = LengthSquared();
-			X /= length;
-			Y /= length;
-			Z /= length;
-			W /= length;
+			X = Y = Z = W = 0.f;
 			return *this;
 		}
-
-		X = Y = Z = W = 0;
-		return *this;
+		else
+		{
+			float mult = 1 / len;
+			X *= mult; Y *= mult; Z *= mult; W *= mult;
+			return *this;
+		}
 	}
+
 	#pragma endregion Definitions of vectors.
 
 	#pragma region Matrices

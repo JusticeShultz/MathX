@@ -1,20 +1,20 @@
 ﻿  main.cpp
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(30): warning C4005: 'PI': macro redefinition
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(33): warning C4005: 'PI': macro redefinition
   c:\users\s189081\source\repos\mathlib\thirdparty\raylib\raylib.h(86): note: see previous definition of 'PI'
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(87): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(762): warning C4091: 'typedef ': ignored on left of 'MathX::Quaternion' when no variable is declared
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(787): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(815): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(817): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(819): warning C4244: '*=': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(821): warning C4244: '/=': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(824): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(827): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(830): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(833): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(1025): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(1052): warning C4018: '<': signed/unsigned mismatch
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(1077): warning C4018: '<': signed/unsigned mismatch
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(89): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(766): warning C4091: 'typedef ': ignored on left of 'MathX::Quaternion' when no variable is declared
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(791): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(819): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(821): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(823): warning C4244: '*=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(825): warning C4244: '/=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(828): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(831): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(834): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(837): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(1029): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(1056): warning C4018: '<': signed/unsigned mismatch
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(1081): warning C4018: '<': signed/unsigned mismatch
 c:\users\s189081\source\repos\mathlib\raylib_interpolation\waypoint.h(11): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 c:\users\s189081\source\repos\mathlib\raylib_interpolation\particlesystem.h(25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 c:\users\s189081\source\repos\mathlib\raylib_interpolation\particlesystem.h(25): warning C4244: 'argument': conversion from 'int' to 'const float', possible loss of data
@@ -47,7 +47,7 @@ c:\users\s189081\source\repos\mathlib\raylib_interpolation\main.cpp(82): warning
 c:\users\s189081\source\repos\mathlib\raylib_interpolation\main.cpp(100): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 c:\users\s189081\source\repos\mathlib\raylib_interpolation\main.cpp(103): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 c:\users\s189081\source\repos\mathlib\raylib_interpolation\main.cpp(106): warning C4018: '<': signed/unsigned mismatch
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(91): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\utils.h(93): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
   c:\users\s189081\source\repos\mathlib\raylib_interpolation\particlesystem.h(25): note: see reference to function template instantiation 'T MathX::Lerp<int>(const T &,const T &,float)' being compiled
           with
           [

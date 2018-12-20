@@ -26,14 +26,15 @@ namespace MathX
 	#define QUARTERCIRCLE 90
 	//Eighth of a circle in degrees.
 	#define EIGHTHCIRCLE 45
-
+	//The lowest decimal place we will check the difference of to a float. (0.0001) 
+	//[This is a substitute for FLT_EPSILON since floating point numbers lose data]
+	#define FLOATMIN 0.0001
 	//Defined as PI or π.
 	#define PI 3.14159265358979323846
 	//Defined as half of PI or (π/2).
 	#define HALF_PI (3.14159265358979323846/2)
 	//Defined as a fourth of PI or (π/4).
 	#define FOURTH_PI (3.14159265358979323846/4)
-
 	//Multiply this with a angle measure expressed in degrees to get its equivalent in radians.
 	#define DEG2RAD (PI/180.0f)
 	//Multiply this with a angle measure expressed in radians to get its equivalent in degrees.
@@ -291,7 +292,7 @@ namespace MathX
 			//Finds the largest of the 2 values.
 			float largest1 = (temp2.X > temp1.X) ? temp2.X : temp1.X;
 
-			if (diff1 <= largest1 * FLT_EPSILON)
+			if (diff1 <= largest1 * FLOATMIN)
 				x = true;
 			else x = false;
 
@@ -305,7 +306,7 @@ namespace MathX
 			//Finds the largest of the 2 values.
 			float largest2 = (temp2.Y > temp1.Y) ? temp2.Y : temp1.Y;
 
-			if (diff2 <= largest2 * FLT_EPSILON)
+			if (diff2 <= largest2 * FLOATMIN)
 				y = true;
 			else y = false;
 
@@ -452,7 +453,7 @@ namespace MathX
 			//Finds the largest of the 2 values.
 			float largest1 = (temp2.X > temp1.X) ? temp2.X : temp1.X;
 
-			if (diff1 <= largest1 * FLT_EPSILON)
+			if (diff1 <= largest1 * FLOATMIN)
 				x = true;
 			else x = false;
 
@@ -466,7 +467,7 @@ namespace MathX
 			//Finds the largest of the 2 values.
 			float largest2 = (temp2.Y > temp1.Y) ? temp2.Y : temp1.Y;
 
-			if (diff2 <= largest2 * FLT_EPSILON)
+			if (diff2 <= largest2 * FLOATMIN)
 				y = true;
 			else y = false;
 
@@ -480,7 +481,7 @@ namespace MathX
 			//Finds the largest of the 2 values.
 			float largest3 = (temp2.Z > temp1.Z) ? temp2.Z : temp1.Z;
 
-			if (diff3 <= largest3 * FLT_EPSILON)
+			if (diff3 <= largest3 * FLOATMIN)
 				z = true;
 			else z = false;
 
@@ -629,7 +630,7 @@ namespace MathX
 			//Finds the largest of the 2 values.
 			float largest1 = (temp2.X > temp1.X) ? temp2.X : temp1.X;
 
-			if (diff1 <= largest1 * FLT_EPSILON)
+			if (diff1 <= largest1 * FLOATMIN)
 				x = true;
 			else x = false;
 
@@ -643,7 +644,7 @@ namespace MathX
 			//Finds the largest of the 2 values.
 			float largest2 = (temp2.Y > temp1.Y) ? temp2.Y : temp1.Y;
 
-			if (diff2 <= largest2 * FLT_EPSILON)
+			if (diff2 <= largest2 * FLOATMIN)
 				y = true;
 			else y = false;
 
@@ -657,7 +658,7 @@ namespace MathX
 			//Finds the largest of the 2 values.
 			float largest3 = (temp2.Z > temp1.Z) ? temp2.Z : temp1.Z;
 
-			if (diff3 <= largest3 * FLT_EPSILON)
+			if (diff3 <= largest3 * FLOATMIN)
 				z = true;
 			else z = false;
 
@@ -671,7 +672,7 @@ namespace MathX
 			//Finds the largest of the 2 values.
 			float largest4 = (temp2.W > temp1.W) ? temp2.W : temp1.W;
 
-			if (diff4 <= largest4 * FLT_EPSILON)
+			if (diff4 <= largest4 * FLOATMIN)
 				w = true;
 			else w = false;
 

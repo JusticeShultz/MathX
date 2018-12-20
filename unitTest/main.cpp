@@ -135,6 +135,8 @@ int main()
 	TestUnit("Vector2 set scale", a2, Vector2(250, -250));
 	TestUnit("Vector2 get scale", a2.GetScale(10), Vector2(2500, -2500));
 
+	std::cout << "\n\nIf nothing above failed then additionaly: Length, Length Squared, Squareroot,\nPrint, Set, Distance, Distance Squared, Zero, One, Five, Fifty and All operatorsdid not fail!";
+
 	std::cout << "\n\n\nSomehow stuff didn't break, that's pretty neat!\n\n\n";
 	system("pause");
 	return 1;
