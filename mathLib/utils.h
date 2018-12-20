@@ -6,6 +6,10 @@
 #include <string>
 //Time to generate a "random" seed.
 #include <time.h>
+//Iostream to allow << cout operators.
+#include <iostream>
+#include <iomanip>
+
 #pragma endregion
 #pragma region MathX
 //Contains all math related functions in the MathX library.
@@ -34,6 +38,7 @@ namespace MathX
 	#define DEG2RAD (PI/180.0f)
 	//Multiply this with a angle measure expressed in radians to get its equivalent in degrees.
 	#define RAD2DEG (180.0f/PI)
+
 	#pragma endregion Definitions for things such as PI or Degree to Radians.
 
 	#pragma region MathFunctions
@@ -79,14 +84,20 @@ namespace MathX
 		}
 		return s;
 	}
-	
 	//Simple action sequence to ease in using a sin function.
 	template <typename T> T EaseInSine(float t, const T& b, const T& c, float d) { return b + c - c * cosf(t / d * HALF_PI); }
 	//Simple action sequence to ease in using a linear function.
 	template <typename T> T LinearEase(float t, const T& b, const T& c, float d) { return b + c * (t / d); }
 	//Simple action sequence to ease in using a Lerp function.
 	template <typename T> T Lerp(const T& a, const T& b, float t) { return a + (b - a) * t; }
-	template <typename T> T QuadraticBezier(const T& a, const T& b, const T& c, float t) { T x = Lerp(a, b, t); T y = Lerp(b, c, t); return Lerp(x, y, t); }
+	//Calculates a quadratic bezier curve.
+	template <typename T> T QuadraticBezier(const T& a, const T& b, const T& c, float t) 
+	{ 
+		T x = Lerp(a, b, t); 
+		T y = Lerp(b, c, t); 
+		return Lerp(x, y, t); 
+	}
+	//Calculated a cubic bezier curve.
 	template <typename T> T CubicBezier(const T& a, const T& b, const T& c, const T& d, float t) 
 	{ 
 		T x = Lerp(a, b, t); 
@@ -94,6 +105,7 @@ namespace MathX
 		T z = Lerp(c, d, t); 
 		return quadraticBezier(x, y, z, t); 
 	}
+	//Calculates a hermite curve.
 	template <typename T> T HermiteCurve(const T& p0, const T& t0, const T& p1, const T& t1, float t)
 	{ 
 		// calculate the time-step squared and cubed 
@@ -106,9 +118,10 @@ namespace MathX
 		// combine points and tangents 
 		return p0 * h00 + t0 * h10 + p1 * h01 + t1 * h11; 
 	}
+	//Calculates a catmull rom spline.
 	template <typename T> T CatmullRomSpline(const T* controlPoints, size_t count, float t) 
 	{
-		//assert(count > 1); 
+		//TestUnit(count > 1); 
 
 		// early out 
 		if (t <= 0) 
@@ -139,9 +152,50 @@ namespace MathX
 		// return curve result 
 		return HermiteCurve(controlPoints[p0], t0, controlPoints[p1], t1, s);
 	}
+
+	//Unit test. This is used to test things and get a printed result to the console. !!!DO NOT USE FOR FLOATS!!!
+	template <typename T> void TestUnit(const char *print, const T& a, const T& b)
+	{
+		if (a == b) std::cout << print << " did not fail!" << std::endl;
+		else
+		{
+			std::cout << "Unit Test failed! " << print << ": " << a << " != " << b << std::endl;
+		}
+	};
+
+	//Unit test FOR FLOATS ONLY. This is used to test things and get a printed result to the console. !!!USE FOR FLOATS ONLY!!!
+	inline void TestUnit_FLOAT(const char *print, const float a, const float b, float maxRelDiff = FLT_EPSILON)
+	{
+		bool x = false;
+
+		float temp1 = a;
+		float temp2 = b;
+
+		//Calculates the difference.
+		float diff = fabs(a - b);
+		temp1 = fabs(a);
+		temp2 = fabs(b);
+
+		//Finds the largest of the 2 values.
+		float largest = (temp2 > temp1) ? temp2 : temp1;
+
+		if (diff <= largest * maxRelDiff)
+			x = true;
+		else x = false;
+
+		if (x == true) std::cout << print << " did not fail!" << std::endl;
+		else
+		{
+			std::cout << std::fixed;
+			std::cout << std::setprecision(7);
+			std::cout << "Unit Test failed! " << print << ": " << a << " != " << b << std::endl;
+		}
+	};
+
 	#pragma endregion All the functions that preform a template based action.
 
 	#pragma region Vectors
+
 	class Vector2
 	{
 	public:
@@ -150,47 +204,66 @@ namespace MathX
 		//Input value Y.
 		float Y;
 
-		//Sets the values to 0. (Use the constructor input for a init value)
+		//[SETTER] Sets the values to 0. (Use the constructor input for a init value)
 		void Zero() { X = 0, Y = 0; };
-		//Sets the values to 1. (Use the constructor input for a init value)
+		//[SETTER] Sets the values to 1. (Use the constructor input for a init value)
 		void One() { X = 1, Y = 1; };
-		//Sets the values to 5. (Use the constructor input for a init value)
+		//[SETTER] Sets the values to 5. (Use the constructor input for a init value)
 		void Five() { X = 5, Y = 5; };
-		//Sets the values to 50. (Use the constructor input for a init value)
+		//[SETTER] Sets the values to 50. (Use the constructor input for a init value)
 		void Fifty() { X = 50, Y = 50; };
 
-		//Default constructor.
+		//[SETTER] Default constructor.
 		Vector2(void);
-		//Data input constructor.
+		//[SETTER] Data input constructor.
 		Vector2(float xValue, float yValue);
-		//Additional constructor type.
+		//[SETTER] Additional constructor type.
 		Vector2(const Vector2 & v);
-		//Additional constructor type.
+		//[SETTER] Additional constructor type.
 		Vector2(const Vector2 * v);
-		//Deconstructor
+		//[SETTER] Deconstructor
 		~Vector2(void);
 
-		//Setter function.
+		//[DISPLAYER] Prints to the console the values contained in this vector type.
+		void Print() const;
+		//[SETTER] Simple setter function.
 		void Set(float xValue, float yValue);
-		//Get the length of the vector.
+		//[GETTER] Get the length of the vector.
 		float Length() const;
-		//Get the Magnitude of the vector
+		//[GETTER] Get the Magnitude of the vector
 		float Magnitude() const;
-		//Get the length squared of the vector.
+		//[GETTER] Get the length squared of the vector.
 		float LengthSquared() const;
-		//Get the distance of the vector.
+		//[GETTER] Get the distance of the vector.
 		float Distance(const Vector2 & v) const;
-		//Get the distance squared of the vector.
+		//[GETTER] Get the distance squared of the vector.
 		float DistanceSquared(const Vector2 & v) const;
-		//Get the Dot product of the vector.
+		//[GETTER] Get the Dot product of the vector.
 		float Dot(const Vector2 & v) const;
-		//Get the Cross product of the vector.
+		//[GETTER] Get the Cross product of the vector.
 		float Cross(const Vector2 & v) const;
-		//Get the normal of the vector.
+		//[SETTER] Set the vector to be scaled by a given float value.
+		void SetScale(const float scale);
+		//[GETTER] Get the scaled version of the vector by a float value given.
+		Vector2 GetScale(const float scale);
+		//[SETTER] Set the vector to be scaled by a given float value. [Vector2]
+		void SetScale(const Vector2 scale);
+		//[GETTER] Get the scaled version of the vector by a float value given. [Vector2]
+		Vector2 GetScale(const Vector2 scale);
+		//[GETTER] Get the angle between this vector and a given vector.
+		float AngleBetweenDegrees(const Vector2 other);
+		//[GETTER] Get the angle between this vector and a given vector.
+		float AngleBetweenRadians(const Vector2 other);
+		//[GETTER] Get the perpendicular clockwise of the vector.
+		Vector2 PerpendicularClockwise();
+		//[GETTER] Get the perpendicular counter clockwise of the vector.
+		Vector2 PerpendicularCounterClockwise();
+		//[GETTER] Get the normal of the vector.
 		Vector2 & Normal();
-		//Normalize the vector.
+		//[SETTER] Normalize the vector.
 		Vector2 & Normalize();
 
+		#pragma region Operators
 		//Vector2 operators:
 
 		//Setter Vector2 input.
@@ -201,7 +274,44 @@ namespace MathX
 		Vector2 & operator - (void) { X = -X; Y = -Y; return *this; };
 
 		//Checker equals operation.
-		bool operator == (const Vector2 & v) const { return (X == v.X) && (Y == v.Y); };
+		bool operator == (const Vector2 & v) const 
+		{ 
+			bool x = false, y = false;
+			
+			//Check X.
+
+			Vector2 temp1 = v;
+			Vector2 temp2 = Vector2(X, Y);
+
+			//Calculates the difference.
+			float diff1 = fabs(v.X - X);
+			temp1.X = fabs(temp1.X);
+			temp2.X = fabs(X);
+
+			//Finds the largest of the 2 values.
+			float largest1 = (temp2.X > temp1.X) ? temp2.X : temp1.X;
+
+			if (diff1 <= largest1 * FLT_EPSILON)
+				x = true;
+			else x = false;
+
+			//Check Y.
+
+			//Calculates the difference.
+			float diff2 = fabs(v.Y - Y);
+			temp1.Y = fabs(temp1.Y);
+			temp2.Y = fabs(Y);
+
+			//Finds the largest of the 2 values.
+			float largest2 = (temp2.Y > temp1.Y) ? temp2.Y : temp1.Y;
+
+			if (diff2 <= largest2 * FLT_EPSILON)
+				y = true;
+			else y = false;
+
+			return x && y;
+		};
+
 		//Checker does not equal operation.
 		bool operator != (const Vector2 & v) const { return (X != v.X) || (Y != v.Y); };
 
@@ -249,6 +359,8 @@ namespace MathX
 		Vector2 & operator ++ (int z) { ++X, ++Y; return *this; };
 		//Simple decrement operator.
 		Vector2 & operator -- (int z) { --X, --Y; return *this; };
+
+		#pragma endregion Vector2 operations.
 	};
 
 	class Vector3
@@ -261,47 +373,58 @@ namespace MathX
 		//Input value Z.
 		float Z;
 
-		//Sets the values to 0. (Use the constructor input for a init value)
+		//[SETTER] Sets the values to 0. (Use the constructor input for a init value)
 		void Zero() { X = 0, Y = 0; Z = 0; };
-		//Sets the values to 1. (Use the constructor input for a init value)
+		//[SETTER] Sets the values to 1. (Use the constructor input for a init value)
 		void One() { X = 1, Y = 1; Z = 1; };
-		//Sets the values to 5. (Use the constructor input for a init value)
+		//[SETTER] Sets the values to 5. (Use the constructor input for a init value)
 		void Five() { X = 5, Y = 5; Z = 5; };
-		//Sets the values to 50. (Use the constructor input for a init value)
+		//[SETTER] Sets the values to 50. (Use the constructor input for a init value)
 		void Fifty() { X = 50, Y = 50; Z = 50; };
 
-		//Default constructor.
+		//[SETTER] Default constructor.
 		Vector3(void);
-		//Data input constructor.
+		//[SETTER] Data input constructor.
 		Vector3(float xValue, float yValue, float zValue);
-		//Additional constructor type.
+		//[SETTER] Additional constructor type.
 		Vector3(const Vector3 & v);
-		//Additional constructor type.
+		//[SETTER] Additional constructor type.
 		Vector3(const Vector3 * v);
-		//Deconstructor
+		//[SETTER] Deconstructor
 		~Vector3(void);
 
-		//Setter function.
+		//[DISPLAYER] Prints to the console the values contained in this vector type.
+		void Print() const;
+		//[SETTER] Setter function.
 		void Set(float xValue, float yValue, float zValue);
-		//Get the length of the vector.
+		//[GETTER] Get the length of the vector.
 		float Length() const;
-		//Get the length squared of the vector.
+		//[GETTER] Get the length squared of the vector.
 		float LengthSquared() const;
-		//Get the Magnitude of the vector
+		//[GETTER] Get the Magnitude of the vector
 		float Magnitude() const;
-		//Get the distance of the vector.
+		//[GETTER] Get the distance of the vector.
 		float Distance(const Vector3 & v) const;
-		//Get the distance squared of the vector.
+		//[GETTER] Get the distance squared of the vector.
 		float DistanceSquared(const Vector3 & v) const;
-		//Get the Dot product of the vector.
+		//[GETTER] Get the Dot product of the vector.
 		float Dot(const Vector3 & v) const;
-		//Get the Cross product of the vector.
-		float Cross(const Vector3 & v) const;
-		//Get the normal of the vector.
+		//[GETTER] Get the Cross product of the vector.
+		Vector3 Cross(const Vector3 & v) const;
+		//[SETTER] Set the vector to be scaled by a given float value.
+		void SetScale(const float scale);
+		//[GETTER] Get the scaled version of the vector by a float value given.
+		Vector3 GetScale(const float scale);
+		//[SETTER] Set the vector to be scaled by a given float value. [Vector3]
+		void SetScale(const Vector3 scale);
+		//[GETTER] Get the scaled version of the vector by a float value given. [Vector3]
+		Vector3 GetScale(const Vector3 scale);
+		//[GETTER] Get the normal of the vector.
 		Vector3 & Normal();
-		//Normalize the vector.
+		//[SETTER] Normalize the vector.
 		Vector3 & Normalize();
 
+		#pragma region Operators
 		//Vector3 operators:
 
 		//Setter Vector3 input.
@@ -312,7 +435,58 @@ namespace MathX
 		Vector3 & operator - (void) { X = -X; Y = -Y; Z = -Z; return *this; };
 
 		//Checker equals operation.
-		bool operator == (const Vector3 & v) const { return (X == v.X) && (Y == v.Y) && (Z == v.Z); };
+		bool operator == (const Vector3 & v) const
+		{
+			bool x = false, y = false, z = false;
+
+			//Check X.
+
+			Vector3 temp1 = v;
+			Vector3 temp2 = Vector3(X, Y, Z);
+
+			//Calculates the difference.
+			float diff1 = fabs(v.X - X);
+			temp1.X = fabs(temp1.X);
+			temp2.X = fabs(X);
+
+			//Finds the largest of the 2 values.
+			float largest1 = (temp2.X > temp1.X) ? temp2.X : temp1.X;
+
+			if (diff1 <= largest1 * FLT_EPSILON)
+				x = true;
+			else x = false;
+
+			//Check Y.
+
+			//Calculates the difference.
+			float diff2 = fabs(v.Y - Y);
+			temp1.Y = fabs(temp1.Y);
+			temp2.Y = fabs(Y);
+
+			//Finds the largest of the 2 values.
+			float largest2 = (temp2.Y > temp1.Y) ? temp2.Y : temp1.Y;
+
+			if (diff2 <= largest2 * FLT_EPSILON)
+				y = true;
+			else y = false;
+
+			//Check Z.
+
+			//Calculates the difference.
+			float diff3 = fabs(v.Z - Z);
+			temp1.Z = fabs(temp1.Z);
+			temp2.Z = fabs(Z);
+
+			//Finds the largest of the 2 values.
+			float largest3 = (temp2.Z > temp1.Z) ? temp2.Z : temp1.Z;
+
+			if (diff3 <= largest3 * FLT_EPSILON)
+				z = true;
+			else z = false;
+
+			return x && y && z;
+		};
+
 		//Checker does not equal operation.
 		bool operator != (const Vector3 & v) const { return (X != v.X) || (Y != v.Y) || (Z != v.Z); };
 
@@ -360,6 +534,8 @@ namespace MathX
 		Vector3 & operator ++ (int z) { ++X, ++Y, ++Z; return *this; };
 		//Simple decrement operator.
 		Vector3 & operator -- (int z) { --X, --Y, --Z; return *this; };
+
+		#pragma endregion Vector3 operations.
 	};
 
 	class Vector4
@@ -374,47 +550,58 @@ namespace MathX
 		//Input value W.
 		float W;
 
-		//Sets the values to 0. (Use the constructor input for a init value)
+		//[SETTER] Sets the values to 0. (Use the constructor input for a init value)
 		void Zero() { X = 0, Y = 0; Z = 0; W = 0; };
-		//Sets the values to 1. (Use the constructor input for a init value)
+		//[SETTER] Sets the values to 1. (Use the constructor input for a init value)
 		void One() { X = 1, Y = 1; Z = 1; W = 1; };
-		//Sets the values to 5. (Use the constructor input for a init value)
+		//[SETTER] Sets the values to 5. (Use the constructor input for a init value)
 		void Five() { X = 5, Y = 5; Z = 5; W = 5; };
-		//Sets the values to 50. (Use the constructor input for a init value)
+		//[SETTER] Sets the values to 50. (Use the constructor input for a init value)
 		void Fifty() { X = 50, Y = 50; Z = 50; W = 50; };
 
-		//Default constructor.
+		//[SETTER] Empty default constructor.
 		Vector4(void);
-		//Data input constructor.
+		//[SETTER] Data input constructor.
 		Vector4(float xValue, float yValue, float zValue, float wValue);
-		//Additional constructor type.
+		//[SETTER] Additional constructor type.
 		Vector4(const Vector4 & v);
-		//Additional constructor type.
+		//[SETTER] Additional constructor type.
 		Vector4(const Vector4 * v);
-		//Deconstructor
+		//[DECONSTRUCTOR]
 		~Vector4(void);
 
-		//Setter function.
+		//[DISPLAYER] Prints to the console the values contained in this vector type.
+		void Print() const;
+		//[SETTER] Setter function.
 		void Set(float xValue, float yValue, float zValue, float wValue);
-		//Get the length of the vector.
+		//[GETTER] Get the length of the vector.
 		float Length() const;
-		//Get the length squared of the vector.
+		//[GETTER] Get the length squared of the vector.
 		float LengthSquared() const;
-		//Get the distance of the vector.
+		//[GETTER] Get the distance of the vector.
 		float Distance(const Vector4 & v) const;
-		//Get the distance squared of the vector.
+		//[GETTER] Get the distance squared of the vector.
 		float DistanceSquared(const Vector4 & v) const;
-		//Get the Magnitude of the vector
+		//[GETTER] Get the Magnitude of the vector
 		float Magnitude() const;
-		//Get the Dot product of the vector.
+		//[GETTER] Get the Dot product of the vector.
 		float Dot(const Vector4 & v) const;
-		//Get the Cross product of the vector.
-		float Cross(const Vector4 & v) const;
-		//Get the normal of the vector.
+		//[GETTER] Get the Cross product of the vector.
+		Vector4 Cross(const Vector4 & v) const;
+		//[SETTER] Set the vector to be scaled by a given float value. [Float]
+		void SetScale(const float scale);
+		//[GETTER] Get the scaled version of the vector by a float value given. [Float]
+		Vector4 GetScale(const float scale);
+		//[SETTER] Set the vector to be scaled by a given float value. [Vector4]
+		void SetScale(const Vector4 scale);
+		//[GETTER] Get the scaled version of the vector by a float value given. [Vector4]
+		Vector4 GetScale(const Vector4 scale);
+		//[GETTER] Get the normal of the vector.
 		Vector4 & Normal();
-		//Normalize the vector.
+		//[SETTER] Normalize the vector.
 		Vector4 & Normalize();
 
+		#pragma region Operators
 		//Vector4 operators:
 
 		//Setter Vector4 input.
@@ -425,7 +612,72 @@ namespace MathX
 		Vector4 & operator - (void) { X = -X; Y = -Y; Z = -Z; W = -W; return *this; };
 
 		//Checker equals operation.
-		bool operator == (const Vector4 & v) const { return (X == v.X) && (Y == v.Y) && (Z == v.Z) && (W == v.W); };
+		bool operator == (const Vector4 & v) const
+		{
+			bool x = false, y = false, z = false, w = false;
+
+			//Check X.
+
+			Vector4 temp1 = v;
+			Vector4 temp2 = Vector4(X, Y, Z, W);
+
+			//Calculates the difference.
+			float diff1 = fabs(v.X - X);
+			temp1.X = fabs(temp1.X);
+			temp2.X = fabs(X);
+
+			//Finds the largest of the 2 values.
+			float largest1 = (temp2.X > temp1.X) ? temp2.X : temp1.X;
+
+			if (diff1 <= largest1 * FLT_EPSILON)
+				x = true;
+			else x = false;
+
+			//Check Y.
+
+			//Calculates the difference.
+			float diff2 = fabs(v.Y - Y);
+			temp1.Y = fabs(temp1.Y);
+			temp2.Y = fabs(Y);
+
+			//Finds the largest of the 2 values.
+			float largest2 = (temp2.Y > temp1.Y) ? temp2.Y : temp1.Y;
+
+			if (diff2 <= largest2 * FLT_EPSILON)
+				y = true;
+			else y = false;
+
+			//Check Z.
+
+			//Calculates the difference.
+			float diff3 = fabs(v.Z - Z);
+			temp1.Z = fabs(temp1.Z);
+			temp2.Z = fabs(Z);
+
+			//Finds the largest of the 2 values.
+			float largest3 = (temp2.Z > temp1.Z) ? temp2.Z : temp1.Z;
+
+			if (diff3 <= largest3 * FLT_EPSILON)
+				z = true;
+			else z = false;
+
+			//Check W.
+
+			//Calculates the difference.
+			float diff4 = fabs(v.W - W);
+			temp1.W = fabs(temp1.W);
+			temp2.W = fabs(W);
+
+			//Finds the largest of the 2 values.
+			float largest4 = (temp2.W > temp1.W) ? temp2.W : temp1.W;
+
+			if (diff4 <= largest4 * FLT_EPSILON)
+				w = true;
+			else w = false;
+
+			return x && y && z && w;
+		};
+
 		//Checker does not equal operation.
 		bool operator != (const Vector4 & v) const { return (X != v.X) || (Y != v.Y) || (Z != v.Z) || (W != v.W); };
 
@@ -473,7 +725,14 @@ namespace MathX
 		Vector4 & operator ++ (int z) { ++X, ++Y, ++Z, ++W; return *this; };
 		//Simple decrement operator.
 		Vector4 & operator -- (int z) { --X, --Y, --Z, --W; return *this; };
+		#pragma endregion Vector4 operations.
 	};
+	
+	//Operators for printing using cout << on vectors.
+	inline std::ostream & operator << (std::ostream& stream, const Vector2& vec2) { vec2.Print(); return stream; }
+	inline std::ostream & operator << (std::ostream& stream, const Vector3& vec3) { vec3.Print(); return stream; }
+	inline std::ostream & operator << (std::ostream& stream, const Vector4& vec4) { vec4.Print(); return stream; }
+
 	#pragma endregion Vector declerations.
 
 	#pragma region Complex
@@ -583,7 +842,7 @@ namespace MathX
 		Color & operator -- (int z) { --R, --G, --B, --A; return *this; };
 	};
 
-	#pragma region colorDecls
+	#pragma region Colors
 	//Predefined light gray.
 	#define Light_Gray Color{ 200, 200, 200, 255 }
 	//Predefined gray.
@@ -638,8 +897,9 @@ namespace MathX
 	#define Magenta Color{ 255, 0, 255, 255 } 
 	//Predefined webpage white.
 	#define Webpage_White Color{ 245, 245, 245, 255 }
-	#pragma endregion colorDecls
+	#pragma endregion Predefined Colors.
 
+	#pragma region Complex
 	//NOTE: Matrices are not completed due to lack of documentation on the handbook
 	class Matrix2
 	{

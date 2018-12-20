@@ -1,6 +1,6 @@
 #include "raylib.h"
 #include "utils.h"
-#include <cassert>
+//#include <cTestUnit>
 #include "Sprite.h"
 
 int main()

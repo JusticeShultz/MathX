@@ -1,6 +1,8 @@
 #include "utils.h"
 #include <cmath>
+
 #pragma region MathX
+
 //MathX namespace indentifier.
 namespace MathX
 {
@@ -12,6 +14,7 @@ namespace MathX
 	Vector2::Vector2(const Vector2 * v) : X(v->X), Y(v->Y) { }
 	Vector2::~Vector2(void) { }
 
+	void Vector2::Print() const { std::cout << "(" << X << ", " << Y << ")"; }
 	void Vector2::Set(float xValue, float yValue) { X = xValue; Y = yValue; }
 	float Vector2::Magnitude() const { return sqrt(((X * X) + (Y * Y))); }
 	float Vector2::Length() const { return sqrt(X * X + Y * Y); }
@@ -20,7 +23,28 @@ namespace MathX
 	float Vector2::DistanceSquared(const Vector2 & v) const { return ((X - v.X) * (X - v.X)) + ((Y - v.Y) * (Y - v.Y)); }
 	float Vector2::Dot(const Vector2 & v) const { return X * v.X + Y * v.Y; }
 	float Vector2::Cross(const Vector2 & v) const { return X * v.Y + Y * v.X; }
-
+	void Vector2::SetScale(const float scale) { X *= scale; Y *= scale; };
+	Vector2 Vector2::GetScale(const float scale) { return Vector2(X * scale, Y * scale); };
+	void Vector2::SetScale(const Vector2 scale) { X *= scale.X; Y *= scale.Y; };
+	Vector2 Vector2::GetScale(const Vector2 scale) { return Vector2(X * scale.X, Y * scale.Y); };
+	float Vector2::AngleBetweenDegrees(const Vector2 other)
+	{
+		Vector2 VectorCalculation = { X - other.X, Y - other.Y };
+		float normal = sqrt(VectorCalculation.X * VectorCalculation.X + VectorCalculation.Y * VectorCalculation.Y);
+		VectorCalculation.X = VectorCalculation.X / normal;
+		VectorCalculation.Y = VectorCalculation.Y / normal;
+		return atan2(VectorCalculation.Y, VectorCalculation.X) * RAD2DEG;
+	}
+	float Vector2::AngleBetweenRadians(const Vector2 other)
+	{
+		Vector2 VectorCalculation = { X - other.X, Y - other.Y };
+		float normal = sqrt(VectorCalculation.X * VectorCalculation.X + VectorCalculation.Y * VectorCalculation.Y);
+		VectorCalculation.X = VectorCalculation.X / normal;
+		VectorCalculation.Y = VectorCalculation.Y / normal;
+		return atan2(VectorCalculation.Y, VectorCalculation.X);
+	}
+	Vector2 Vector2::PerpendicularClockwise() { return Vector2(Y, -X); }
+	Vector2 Vector2::PerpendicularCounterClockwise() { return Vector2(-Y, X); }
 	Vector2 & Vector2::Normal() { Set(-Y, X); return *this; }
 	Vector2 & Vector2::Normalize()
 	{
@@ -43,6 +67,7 @@ namespace MathX
 	Vector3::Vector3(const Vector3 * v) : X(v->X), Y(v->Y), Z(v->Z) { }
 	Vector3::~Vector3(void) { }
 
+	void Vector3::Print() const { std::cout << "(" << X << ", " << Y << ", " << Z << ")"; }
 	void Vector3::Set(float xValue, float yValue, float zValue) { X = xValue; Y = yValue; Z = zValue; }
 	float Vector3::Magnitude() const { return sqrt(((X * X) + (Y * Y) + (Z * Z))); }
 	float Vector3::Length() const { return sqrt(X * X + Y * Y + Z * Z); }
@@ -50,8 +75,19 @@ namespace MathX
 	float Vector3::Distance(const Vector3 & v) const { return sqrt(((X - v.X) * (X - v.X)) + ((Y - v.Y) * (Y - v.Y)) + ((Z - v.Z) * (Z - v.Z))); }
 	float Vector3::DistanceSquared(const Vector3 & v) const { return ((X - v.X) * (X - v.X)) + ((Y - v.Y) * (Y - v.Y)) + ((Z - v.Z) * (Z - v.Z)); }
 	float Vector3::Dot(const Vector3 & v) const { return X * v.X + Y * v.Y + Z * v.Z; }
-	float Vector3::Cross(const Vector3 & v) const { return X * v.Y + Y * v.X + Z * v.X; }
+	Vector3 Vector3::Cross(const Vector3 & right) const 
+	{ 
+		Vector3 returnValue;
+		returnValue.X = Y * right.Z - Z * right.Y;
+		returnValue.Y = Z * right.X - X * right.Z;
+		returnValue.Z = X * right.Y - Y * right.X;
 
+		return returnValue;
+	}
+	void Vector3::SetScale(const float scale) { X *= scale; Y *= scale; Z *= scale; };
+	Vector3 Vector3::GetScale(const float scale) { return Vector3(X * scale, Y * scale, Z * scale); };
+	void Vector3::SetScale(const Vector3 scale) { X *= scale.X; Y *= scale.Y; Z *= scale.Z; };
+	Vector3 Vector3::GetScale(const Vector3 scale) { return Vector3(X * scale.X, Y * scale.Y, Z * scale.Z); };
 	Vector3 & Vector3::Normal() { Set(-Y, X, Z); return *this; }
 	Vector3 & Vector3::Normalize()
 	{
@@ -75,6 +111,7 @@ namespace MathX
 	Vector4::Vector4(const Vector4 * v) : X(v->X), Y(v->Y), Z(v->Z), W(v->W) { }
 	Vector4::~Vector4(void) { }
 
+	void Vector4::Print() const { std::cout << "(" << X << ", " << Y << ", " << Z << ", " << W << ")"; }
 	void Vector4::Set(float xValue, float yValue, float zValue, float wValue) { X = xValue; Y = yValue; Z = zValue; W = wValue; }
 	float Vector4::Magnitude() const { return sqrt(((X * X) + (Y * Y) + (Z * Z) + (W * W))); }
 	float Vector4::Length() const { return sqrt(X * X + Y * Y + Z * Z + W * W); }
@@ -82,8 +119,17 @@ namespace MathX
 	float Vector4::Distance(const Vector4 & v) const { return sqrt(((X - v.X) * (X - v.X)) + ((Y - v.Y) * (Y - v.Y)) + ((Z - v.Z) * (Z - v.Z)) + ((W - v.W) * (W - v.W))); }
 	float Vector4::DistanceSquared(const Vector4 & v) const { return ((X - v.X) * (X - v.X)) + ((Y - v.Y) * (Y - v.Y)) + ((Z - v.Z) * (Z - v.Z)) + ((W - v.W) * (W - v.W)); }
 	float Vector4::Dot(const Vector4 & v) const { return X * v.X + Y * v.Y + Z * v.Z + W * v.W; }
-	float Vector4::Cross(const Vector4 & v) const { return X * v.Y + Y * v.X + Z * v.W + W * v.Z; }
-
+	Vector4 Vector4::Cross(const Vector4 & v) const
+	{ 
+		Vector3 temp1(X, Y, Z);
+		Vector3 temp2(v.X, v.Y, v.Z);
+		temp1 = temp1.Cross(temp2);
+		return Vector4(temp1.X, temp1.Y, temp1.Z, 0);
+	}
+	void Vector4::SetScale(const float scale) { X *= scale; Y *= scale; Z *= scale; W *= scale; };
+	Vector4 Vector4::GetScale(const float scale) { return Vector4(X * scale, Y * scale, Z * scale, W * scale); };
+	void Vector4::SetScale(const Vector4 scale) { X *= scale.X; Y *= scale.Y; Z *= scale.Z; W *= scale.W; };
+	Vector4 Vector4::GetScale(const Vector4 scale) { return Vector4(X * scale.X, Y * scale.Y, Z * scale.Z, W * scale.W); };
 	Vector4 & Vector4::Normal() { Set(-Y, X, Z, W); return *this; }
 	Vector4 & Vector4::Normalize()
 	{
