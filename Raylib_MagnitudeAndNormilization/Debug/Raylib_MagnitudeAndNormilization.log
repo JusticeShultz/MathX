@@ -1,20 +1,180 @@
 ﻿  main.cpp
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(89): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(766): warning C4091: 'typedef ': ignored on left of 'MathX::Quaternion' when no variable is declared
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(791): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(819): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(821): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(823): warning C4244: '*=': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(825): warning C4244: '/=': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(828): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(831): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(834): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(837): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(1029): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(1056): warning C4018: '<': signed/unsigned mismatch
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(1081): warning C4018: '<': signed/unsigned mismatch
-c:\users\s189081\source\repos\mathlib\raylib_magnitudeandnormilization\ball.h(44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\raylib_magnitudeandnormilization\main.cpp(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s189081\source\repos\mathlib\raylib_magnitudeandnormilization\main.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\raylib_magnitudeandnormilization\main.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Raylib_MagnitudeAndNormilization.vcxproj -> C:\Users\s189081\source\repos\mathLib\Debug\Raylib_MagnitudeAndNormilization.exe
+c:\users\s189081\source\repos\mathlib\mathlib\color.h(24): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\color.h(52): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\color.h(54): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\color.h(56): warning C4244: '*=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\color.h(58): warning C4244: '/=': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\color.h(61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\color.h(64): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\color.h(67): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\color.h(70): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(13): error C3646: 'xAxis': unknown override specifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(13): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(14): error C3646: 'yAxis': unknown override specifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(15): error C3646: 'zAxis': unknown override specifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(15): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(20): error C3646: 'right': unknown override specifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(20): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(21): error C3646: 'up': unknown override specifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(21): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(22): error C3646: 'backward': unknown override specifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(22): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(32): error C3646: 'axis': unknown override specifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(32): error C2143: syntax error: missing ',' before '['
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(32): error C2143: syntax error: missing ')' before ';'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(32): error C2238: unexpected token(s) preceding ';'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(47): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(47): error C2143: syntax error: missing ',' before '&'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(49): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(49): error C2143: syntax error: missing ',' before '&'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(222): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(222): error C2143: syntax error: missing ',' before '&'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(240): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(240): error C2143: syntax error: missing ',' before '&'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(245): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(245): error C2143: syntax error: missing ',' before '&'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(263): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(263): error C2143: syntax error: missing ',' before '&'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(268): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(268): error C2143: syntax error: missing ',' before '&'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(284): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(284): error C2143: syntax error: missing ',' before '&'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(302): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(302): error C2143: syntax error: missing ',' before '&'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(308): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(308): error C2143: syntax error: missing ',' before '&'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(309): error C2535: 'MathX::Matrix3 MathX::Matrix3::operator +(const int)': member function already defined or declared
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(222): note: see declaration of 'MathX::Matrix3::operator +'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(326): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(326): error C2143: syntax error: missing ',' before '&'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(327): error C2535: 'MathX::Matrix3 MathX::Matrix3::operator +=(const int)': member function already defined or declared
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(240): note: see declaration of 'MathX::Matrix3::operator +='
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(331): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(331): error C2143: syntax error: missing ',' before '&'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(332): error C2535: 'MathX::Matrix3 MathX::Matrix3::operator -(const int)': member function already defined or declared
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(245): note: see declaration of 'MathX::Matrix3::operator -'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(349): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(349): error C2143: syntax error: missing ',' before '&'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(350): error C2535: 'MathX::Matrix3 MathX::Matrix3::operator -=(const int)': member function already defined or declared
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(263): note: see declaration of 'MathX::Matrix3::operator -='
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(354): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(354): error C2143: syntax error: missing ',' before '&'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(355): error C2535: 'MathX::Matrix3 MathX::Matrix3::operator *(const int)': member function already defined or declared
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(268): note: see declaration of 'MathX::Matrix3::operator *'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(370): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(370): error C2143: syntax error: missing ',' before '&'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(371): error C2535: 'MathX::Matrix3 MathX::Matrix3::operator =(const int)': member function already defined or declared
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(284): note: see declaration of 'MathX::Matrix3::operator ='
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(388): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(388): error C2143: syntax error: missing ',' before '&'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(389): error C2535: 'MathX::Matrix3 MathX::Matrix3::operator *=(const int)': member function already defined or declared
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(302): note: see declaration of 'MathX::Matrix3::operator *='
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(212): error C2065: 'FLOATMIN': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(226): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(226): error C2228: left of '.X' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(226): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(227): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(227): error C2228: left of '.X' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(227): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(228): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(228): error C2228: left of '.X' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(228): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(230): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(230): error C2228: left of '.Y' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(230): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(231): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(231): error C2228: left of '.Y' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(231): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(232): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(232): error C2228: left of '.Y' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(232): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(234): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(234): error C2228: left of '.Z' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(234): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(235): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(235): error C2228: left of '.Z' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(235): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(236): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(236): error C2228: left of '.Z' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(236): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(242): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(249): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(249): error C2228: left of '.X' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(249): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(250): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(250): error C2228: left of '.X' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(250): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(251): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(251): error C2228: left of '.X' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(251): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(253): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(253): error C2228: left of '.Y' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(253): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(254): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(254): error C2228: left of '.Y' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(254): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(255): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(255): error C2228: left of '.Y' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(255): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(257): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(257): error C2228: left of '.Z' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(257): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(258): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(258): error C2228: left of '.Z' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(258): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(259): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(259): error C2228: left of '.Z' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(259): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(265): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(272): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(272): error C2228: left of '.X' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(272): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(272): error C2228: left of '.Y' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(272): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(272): error C2228: left of '.Z' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(272): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(273): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(273): error C2228: left of '.X' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(273): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(273): error C2228: left of '.Y' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(273): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(273): error C2228: left of '.Z' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(273): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(274): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(274): error C2228: left of '.X' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(274): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(274): error C2228: left of '.Y' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(274): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(274): error C2228: left of '.Z' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(274): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(275): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(275): error C2228: left of '.X' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(275): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(275): error C2228: left of '.Y' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(275): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(275): error C2228: left of '.Z' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(275): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(276): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(276): error C2228: left of '.X' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(276): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(276): error C2228: left of '.Y' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(276): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(276): error C2228: left of '.Z' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(276): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(277): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(277): error C2228: left of '.X' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(277): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(277): error C2228: left of '.Y' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(277): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(277): error C2228: left of '.Z' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(277): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(278): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(278): error C2228: left of '.X' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(278): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(278): error C2228: left of '.Y' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(278): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(278): error C2228: left of '.Z' must have class/struct/union
+  c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(278): note: type is 'unknown-type'
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(279): error C2065: 'rhs': undeclared identifier
+c:\users\s189081\source\repos\mathlib\mathlib\matrix3.h(279): fatal error C1003: error count exceeds 100; stopping compilation
