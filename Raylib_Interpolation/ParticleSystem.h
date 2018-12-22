@@ -1,6 +1,6 @@
 #pragma once
 #include "raylib.h"
-#include "utils.h"
+#include "MathX.h"
 #include <stdlib.h>
 
 class Particle

@@ -81,4 +81,7 @@ namespace MathX
 	//Simple division to a value operator.
 	const Vector2 operator / (const Vector2 & rhs, const Matrix4& lhs) { return Vector2(rhs.X / lhs.m[0], rhs.Y / lhs.m[4]); }
 	Vector2 operator / (const Matrix4& lhs, const Vector2 &rhs) { return rhs / lhs; };
+
+	const Vector2 Vector2::operator = (const Matrix3& rhs) { return Vector2(rhs.m[0], rhs.m[3]); }
+	const Vector2 Vector2::operator = (const Matrix4& rhs) { return Vector2(rhs.m[0], rhs.m[4]); }
 }

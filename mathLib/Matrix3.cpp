@@ -1,5 +1,7 @@
 #include "Matrix3.h"
 
+#include "Vector2.h"
+
 namespace MathX
 {
 	#pragma region M3
@@ -27,7 +29,14 @@ namespace MathX
 	}
 	Matrix3::~Matrix3() {}
 
-	Matrix3 Matrix3::Identity()
+	void Matrix3::Print() const
+	{
+		std::cout << "(";
+		for (int i = 0; i < 9; ++i)
+			std::cout << m[i] << ", ";
+		std::cout << ")";
+	}
+	Matrix3 Matrix3::GetIdentity()
 	{
 		Matrix3 temp;
 
@@ -44,6 +53,22 @@ namespace MathX
 		temp.m[8] = 1;
 
 		return temp;
+	}
+	void Matrix3::SetIdentity()
+	{
+		Matrix3 temp;
+
+		m[0] = 1;
+		m[3] = 0;
+		m[6] = 0;
+
+		m[1] = 0;
+		m[4] = 1;
+		m[7] = 0;
+
+		m[2] = 0;
+		m[5] = 0;
+		m[8] = 1;
 	}
 	void Matrix3::Translate(float x, float y)
 	{
@@ -171,5 +196,6 @@ namespace MathX
 		temp.Transpose();
 		return temp;
 	}
+
 	#pragma endregion Matrix3
 }

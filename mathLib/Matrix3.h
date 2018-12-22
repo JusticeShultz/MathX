@@ -1,6 +1,9 @@
 #pragma once
 #include "utils.h"
 
+#include "Vector3.h"
+#include "Vector4.h"
+
 namespace MathX
 {
 	class Matrix3
@@ -37,12 +40,12 @@ namespace MathX
 		Matrix3();
 		Matrix3(const Matrix3& z);
 		Matrix3(float *ptr);
-		Matrix3(float m1, float m2, float m3,
-			float m4, float m5, float m6,
-			float m7, float m8, float m9);
+		Matrix3(float m1, float m2, float m3, float m4, float m5, float m6, float m7, float m8, float m9);
 		~Matrix3();
 
-		Matrix3 Identity();
+		void Print() const;
+		Matrix3 GetIdentity();
+		void SetIdentity();
 		Matrix3 GetTranslation(float x, float y);
 		Matrix3 GetTranslation(const Vector2 &v);
 		void Translate(float x, float y);
@@ -144,6 +147,13 @@ namespace MathX
 			tempMatrix.m[8] = m[2] * rhs.m[6] + m[5] * rhs.m[7] + m[8] * rhs.m[8];
 
 			return tempMatrix;
+
+			/*Matrix3 temp;
+			for (int i = 0; i < 3; i++) //Iterate through this.rows
+				for (int j = 0; j < 3; j++) //Iterate through rhs.columns
+					for (int k = 0; k < 3; k++) //Iterate through this.columns/rhs.rows
+						temp.mm[i][j] += mm[i][k] * rhs.mm[k][j];
+			return temp;*/
 		}
 		Matrix3	operator * (const float &rhs)
 		{
@@ -265,22 +275,16 @@ namespace MathX
 			(*this) = (*this) - rhs;
 			return (*this);
 		}
-		Matrix3	operator * (const Vector3 &rhs)
+		Vector3	operator * (const Vector3 &rhs)
 		{
-			Matrix3 tempMatrix;
 
-			tempMatrix.m[0] = m[0] * rhs.X + m[3] * rhs.Y + m[6] * rhs.Z;
-			tempMatrix.m[3] = m[0] * rhs.X + m[3] * rhs.Y + m[6] * rhs.Z;
-			tempMatrix.m[6] = m[0] * rhs.X + m[3] * rhs.Y + m[6] * rhs.Z;
-			tempMatrix.m[1] = m[1] * rhs.X + m[4] * rhs.Y + m[7] * rhs.Z;
-			tempMatrix.m[4] = m[1] * rhs.X + m[4] * rhs.Y + m[7] * rhs.Z;
-			tempMatrix.m[7] = m[1] * rhs.X + m[4] * rhs.Y + m[7] * rhs.Z;
-			tempMatrix.m[2] = m[2] * rhs.X + m[5] * rhs.Y + m[8] * rhs.Z;
-			tempMatrix.m[5] = m[2] * rhs.X + m[5] * rhs.Y + m[8] * rhs.Z;
-			tempMatrix.m[8] = m[2] * rhs.X + m[5] * rhs.Y + m[8] * rhs.Z;
+			Vector3 vec1(m[0], m[3], m[6]);
+			Vector3 vec2(m[1], m[4], m[7]);
+			Vector3 vec3(m[2], m[5], m[8]);
 
-			return tempMatrix;
+			return Vector3(vec1.Dot(rhs), vec2.Dot(rhs), vec3.Dot(rhs));
 		}
+
 		Matrix3 operator = (const Vector3 &rhs)
 		{
 			Matrix3 tempMatrix = *this;
@@ -351,21 +355,14 @@ namespace MathX
 			(*this) = (*this) - rhs;
 			return (*this);
 		}
-		Matrix3	operator * (const Vector4 &rhs)
+		Vector4	operator * (const Vector4 &rhs)
 		{
-			Matrix3 tempMatrix;
+			Vector3 vec1(m[0], m[3], m[6]);
+			Vector3 vec2(m[1], m[4], m[7]);
+			Vector3 vec3(m[2], m[5], m[8]);
 
-			tempMatrix.m[0] = m[0] * rhs.X + m[3] * rhs.Y + m[6] * rhs.Z;
-			tempMatrix.m[3] = m[0] * rhs.X + m[3] * rhs.Y + m[6] * rhs.Z;
-			tempMatrix.m[6] = m[0] * rhs.X + m[3] * rhs.Y + m[6] * rhs.Z;
-			tempMatrix.m[1] = m[1] * rhs.X + m[4] * rhs.Y + m[7] * rhs.Z;
-			tempMatrix.m[4] = m[1] * rhs.X + m[4] * rhs.Y + m[7] * rhs.Z;
-			tempMatrix.m[7] = m[1] * rhs.X + m[4] * rhs.Y + m[7] * rhs.Z;
-			tempMatrix.m[2] = m[2] * rhs.X + m[5] * rhs.Y + m[8] * rhs.Z;
-			tempMatrix.m[5] = m[2] * rhs.X + m[5] * rhs.Y + m[8] * rhs.Z;
-			tempMatrix.m[8] = m[2] * rhs.X + m[5] * rhs.Y + m[8] * rhs.Z;
-
-			return tempMatrix;
+			Vector3 RHSCONVERSION(Vector3(rhs.X, rhs.Y, rhs.Z));
+			return Vector4(vec1.Dot(RHSCONVERSION), vec2.Dot(RHSCONVERSION), vec3.Dot(RHSCONVERSION), 0);
 		}
 		Matrix3 operator = (const Vector4 &rhs)
 		{
@@ -390,6 +387,11 @@ namespace MathX
 			(*this) = (*this) * rhs;
 			return (*this);
 		}
-#pragma endregion Matrix3 Operators
+	
+	#pragma endregion Matrix3 Operators
 	};
+
+	inline std::ostream & operator << (std::ostream& stream,const  Matrix3 &matrix) { matrix.Print(); return stream; }
+	inline std::ostream & operator << (std::ostream& stream, Matrix3 &matrix) { matrix.Print(); return stream; }
+	inline std::ostream & operator << (Matrix3 &matrix, std::ostream& stream) { matrix.Print(); return stream; }
 }

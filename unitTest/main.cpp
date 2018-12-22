@@ -1,4 +1,5 @@
-#include "utils.h"
+#include "MathX.h"
+#include <cassert>
 //#include <cUnitTester>
 #include <iostream>
 
@@ -151,7 +152,7 @@ int main()
 	UnitTester("Matrix4 set rotate", m4a, Matrix4(1, 0, 0, 0, 0, -0.210796f, -0.97753f, 0, 0, 0.97753f, -0.210796f, 0, 0, 0, 0, 1));
 	UnitTester("Matrix4 set rotate", m4b, Matrix4(-0.856889f, 0, 0.515501f, 0, 0, 1, 0, 0, -0.515501f, 0, -0.856889f, 0, 0, 0, 0, 1));
 	UnitTester("Matrix4 set rotate", m4c, Matrix4(0.751806f, 0.659385f, 0, 0, -0.659385f, 0.751806f, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1));
-
+	
 	// vector transform
 	v2a = Vector2(13.5f, -48.23f);
 	v3a = Vector3(13.5f, -48.23f, 862);
@@ -161,10 +162,22 @@ int main()
 	v4b = m4b * v4a;
 	v4c = m4c * v4a;
 
-	UnitTester("Vector3 matrix transform", v3b, Vector3(844.077941895f, -48.2299995422f, -175.38130188f));
-	UnitTester("Vector3 matrix transform", v3c, Vector3(-22.5994224548f, 44.6950683594f, 862));
-	UnitTester("Vector4 matrix transform", v4b, Vector4(-455.930236816f, -48.2299995422f, -731.678771973f, 0));
-	UnitTester("Vector4 matrix transform", v4c, Vector4(41.951499939f, -27.3578968048f, 862, 0));
+	Matrix3 id3;
+	id3.SetIdentity();
+
+	Vector3 id3test = id3 * Vector3{ 4,7,3 };
+	
+	Matrix4 AHHHHHHHHH;
+	AHHHHHHHHH.Identity();
+	Vector4 AHHHHHHHHH1 = AHHHHHHHHH * Vector4(4, 7, 5, 3);
+	assert("PAIN", AHHHHHHHHH1, Vector4(4, 7, 5, 3));
+
+	UnitTester("Vector3 matrix transform A", id3test, Vector3{ 4,7,3 });
+	UnitTester("Vector3 matrix transform B", v3b, Vector3(-849.156f, -48.23f, -148.863f));
+	UnitTester("Vector3 matrix transform C", v3c, Vector3(-22.5994224548f, 44.6950683594f, 862));
+	UnitTester("Vector4 matrix transform PAIN", AHHHHHHHHH1, Vector4(4, 7, 5, 3));
+	UnitTester("Vector4 matrix transform A", v4b, Vector4(-455.930236816f, -48.2299995422f, -731.678771973f, 0));
+	UnitTester("Vector4 matrix transform B", v4c, Vector4(41.951499939f, -27.3578968048f, 862, 0));
 
 	// matrix multiply
 	m3d = m3a * m3c;
@@ -177,16 +190,16 @@ int main()
 	m3b = Matrix3(1, 0, 0,
 		0, 1, 0,
 		0, 0, 1);
-	m3b[2] = Vector3(55, 44, 1);
+	m3b.yAxis = Vector3(55, 44, 1);
 	m3c.SetRotateZ(2.2f);
-	m3c[2] = Vector3(55, 44, 1);
+	m3c.yAxis = Vector3(55, 44, 1);
 	m4b = Matrix4(1, 0, 0, 0,
 		0, 1, 0, 0,
 		0, 0, 1, 0,
 		0, 0, 0, 1);
-	m4b[3] = Vector4(55, 44, 99, 1);
+	m4b.zAxis = Vector4(55, 44, 99, 1);
 	m4c.SetRotateZ(2.2f);
-	m4c[3] = Vector4(55, 44, 99, 1);
+	m4c.zAxis = Vector4(55, 44, 99, 1);
 
 	v3a = Vector3(13.5f, -48.23f, 1);
 	v3b = m3b * v3a;
@@ -204,16 +217,16 @@ int main()
 	m3b = Matrix3(1, 0, 0,
 		0, 1, 0,
 		0, 0, 1);
-	m3b[2] = Vector3(55, 44, 1);
+	m3b.yAxis = Vector3(55, 44, 1);
 	m3c.SetRotateZ(2.2f);
-	m3c[2] = Vector3(55, 44, 1);
+	m3c.yAxis = Vector3(55, 44, 1);
 	m4b = Matrix4(1, 0, 0, 0,
 		0, 1, 0, 0,
 		0, 0, 1, 0,
 		0, 0, 0, 1);
-	m4b[3] = Vector4(55, 44, 99, 1);
+	m4b.zAxis = Vector4(55, 44, 99, 1);
 	m4c.SetRotateZ(2.2f);
-	m4c[3] = Vector4(55, 44, 99, 1);
+	m4c.zAxis = Vector4(55, 44, 99, 1);
 
 	v3a = Vector3(13.5f, -48.23f, 0);
 	v3b = m3b * v3a;
@@ -227,7 +240,7 @@ int main()
 	UnitTester("Vector4 matrix translation C", v4b, Vector4(13.5f, -48.23f, -54, 0));
 	UnitTester("Vector4 matrix translation D", v4c, Vector4(31.0490131378f, 39.2981109619f, -54, 0));
 
-	std::cout << "\n\nIf nothing above failed then additionaly: Length, Length Squared, Squareroot,\nPrint, Set, Distance, Distance Squared, Zero, One, Five, Fifty and All operatorsdid not fail!";
+	std::cout << "\n\nIf nothing above failed then additionaly: Length, Length Squared, Squareroot,\nPrint, Set, Distance, Distance Squared, Zero, One, Five, Fifty and All operatorsdid not fail for vectors!";
 
 	std::cout << "\n\n\nSomehow stuff didn't break, that's pretty neat!\n\n\n";
 	system("pause");

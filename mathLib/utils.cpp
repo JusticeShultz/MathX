@@ -1,8 +1,10 @@
 #include "utils.h"
+
 #pragma region MathX
 
 namespace MathX
 {
+
 	#pragma region [DEPRECATED]
 	///List of all deprecated functions - kept for possible future use or reference.
 	///float Lerp(float start, float end, float amount) { return start + amount * (end - start); }

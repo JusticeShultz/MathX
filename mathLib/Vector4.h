@@ -1,12 +1,10 @@
 #pragma once
 #include "utils.h"
 
-
-class Matrix3;
-class Matrix4;
-
 namespace MathX
 {
+	class Matrix3;
+	class Matrix4;
 	class Vector4
 	{
 	public:
@@ -70,7 +68,7 @@ namespace MathX
 		//[SETTER] Normalize the vector.
 		Vector4 & Normalize();
 
-#pragma region Operators
+		#pragma region Operators
 		//Vector4 operators:
 
 		//Setter Vector4 input.
@@ -195,34 +193,11 @@ namespace MathX
 		//Simple decrement operator.
 		Vector4 & operator -- (int z) { --X, --Y, --Z, --W; return *this; };
 
-		//Simple addition to a value operator.
-		const Vector4 operator + (const Matrix3& v) const { return Vector4(X + v.m[0], Y + v.m[3], Z + v.m[6], W); }
-		friend Vector4 operator + (const Matrix3& lhs, const Vector4 &rhs) { return rhs + lhs; };
-		//Simple subtraction to a value operator.
-		const Vector4 operator - (const Matrix3& v) const { return Vector4(X - v.m[0], Y - v.m[3], Z - v.m[6], W); }
-		friend Vector4 operator - (const Matrix3& lhs, const Vector4 &rhs) { return rhs - lhs; };
-		//Simple multiplication to a value operator.
-		const Vector4 operator * (const Matrix3& v) const { return Vector4(X * v.m[0], Y * v.m[3], Z * v.m[6], W); }
-		friend Vector4 operator * (const Matrix3& lhs, const Vector4 &rhs) { return rhs * lhs; };
-		//Simple division to a value operator.
-		const Vector4 operator / (const Matrix3& v) const { return Vector4(X / v.m[0], Y / v.m[3], Z / v.m[6], W); }
-		friend Vector4 operator / (const Matrix3& lhs, const Vector4 &rhs) { return rhs / lhs; };
+		const Vector4 operator = (const Matrix3& rhs);
+		const Vector4 operator = (const Matrix4& rhs);
 
-		//Simple addition to a value operator.
-		const Vector4 operator + (const Matrix4& v) const { return Vector4(X + v.m[0], Y + v.m[4], Z + v.m[8], W + v.m[12]); }
-		friend Vector4 operator + (const Matrix4& lhs, const Vector4 &rhs) { return rhs + lhs; };
-		//Simple subtraction to a value operator.
-		const Vector4 operator - (const Matrix4& v) const { return Vector4(X - v.m[0], Y - v.m[4], Z - v.m[8], W - v.m[12]); }
-		friend Vector4 operator - (const Matrix4& lhs, const Vector4 &rhs) { return rhs - lhs; };
-		//Simple multiplication to a value operator.
-		const Vector4 operator * (const Matrix4& v) const { return Vector4(X * v.m[0], Y * v.m[4], Z * v.m[8], W * v.m[12]); }
-		friend Vector4 operator * (const Matrix4& lhs, const Vector4 &rhs) { return rhs * lhs; };
-		//Simple division to a value operator.
-		const Vector4 operator / (const Matrix4& v) const { return Vector4(X / v.m[0], Y / v.m[4], Z / v.m[8], W / v.m[12]); }
-		friend Vector4 operator / (const Matrix4& lhs, const Vector4 &rhs) { return rhs / lhs; };
-
-#pragma endregion Vector4 operations.
+		#pragma endregion Vector4 operations.
 	};
 
-	inline std::ostream & operator << (std::ostream& stream, const Vector4& vec4) { vec4.Print(); return stream; }
+	std::ostream & operator << (std::ostream& stream, const Vector4& vec4);
 }

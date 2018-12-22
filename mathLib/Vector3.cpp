@@ -76,4 +76,9 @@ namespace MathX
 	//Simple division to a value operator.
 	const Vector3 operator / (const Vector3& lhs, const Matrix4 &rhs) { return Vector3(lhs.X / rhs.m[0], lhs.Y / rhs.m[4], lhs.Z / rhs.m[8]); }
 	Vector3 operator / (const Matrix4& lhs, const Vector3 &rhs) { return rhs / lhs; };
+
+	const Vector3 Vector3::operator = (const Matrix3& rhs) { return Vector3(rhs.m[0], rhs.m[3], rhs.m[6]); }
+	const Vector3 Vector3::operator = (const Matrix4& rhs) { return Vector3(rhs.m[0], rhs.m[4], rhs.m[8]); }
+
+	std::ostream & operator << (std::ostream& stream, const Vector3& vec3) { vec3.Print(); return stream; }
 }

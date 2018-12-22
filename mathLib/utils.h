@@ -27,6 +27,12 @@
 
 namespace MathX
 {
+	class Vector2;
+	class Vector3;
+	class Vector4;
+	class Matrix3;
+	class Matrix4;
+
 	#pragma region Definitions
 	//Full circle in degrees.
 	#define FULLCIRCLE 360
@@ -164,17 +170,17 @@ namespace MathX
 		return HermiteCurve(controlPoints[p0], t0, controlPoints[p1], t1, s);
 	}
 
-	//Unit UnitTester. This is used to UnitTester things and get a printed result to the console. !!!DO NOT USE FOR FLOAT COMPARISON!!!
+	//Unit UnitTester. This is used to compare things and get a printed result to the console. !!!DO NOT USE FOR FLOAT COMPARISON!!!
 	template <typename T> void UnitTester(const char *print, const T& a, const T& b)
 	{
 		if (a == b) std::cout << print << " did not fail!" << std::endl;
 		else
 		{
-			std::cout << "Unit UnitTester failed! " << print << ": " << a << " != " << b << std::endl;
+			std::cout << "UnitTest failed! " << print << ": " << a << " != " << b << std::endl;
 		}
 	};
 
-	//Unit UnitTester FOR FLOATS ONLY. This is used to UnitTester things and get a printed result to the console. !!!USE FOR FLOATS ONLY!!!
+	//Float UnitTester FOR FLOATS ONLY. This is used to compare things and get a printed result to the console. !!!USE FOR FLOATS ONLY!!!
 	inline void UnitTester_FLOAT(const char *print, const float a, const float b, float maxRelDiff = FLT_EPSILON)
 	{
 		bool x = false;

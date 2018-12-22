@@ -49,4 +49,35 @@ namespace MathX
 			return *this;
 		}
 	}
+
+	//Simple addition to a value operator.
+	const Vector4 operator + (const Vector4& lhs, const Matrix3 &rhs) { return Vector4(lhs.X + rhs.m[0], lhs.Y + rhs.m[3], lhs.Z + rhs.m[6], lhs.W); }
+	Vector4 operator + (const Matrix3& lhs, const Vector4 &rhs) { return rhs + lhs; };
+	//Simple subtraction to a value operator.
+	const Vector4 operator - (const Vector4& lhs, const Matrix3 &rhs) { return Vector4(lhs.X - rhs.m[0], lhs.Y - rhs.m[3], lhs.Z - rhs.m[6], lhs.W); }
+	Vector4 operator - (const Matrix3& lhs, const Vector4 &rhs) { return rhs - lhs; };
+	//Simple multiplication to a value operator.
+	const Vector4 operator * (const Vector4& lhs, const Matrix3 &rhs) { return Vector4(lhs.X * rhs.m[0], lhs.Y * rhs.m[3], lhs.Z * rhs.m[6], lhs.W); }
+	Vector4 operator * (const Matrix3& lhs, const Vector4 &rhs) { return rhs * lhs; };
+	//Simple division to a value operator.
+	const Vector4 operator / (const Vector4& lhs, const Matrix3 &rhs) { return Vector4(lhs.X / rhs.m[0], lhs.Y / rhs.m[3], lhs.Z / rhs.m[6], lhs.W); }
+	Vector4 operator / (const Matrix3& lhs, const Vector4 &rhs) { return rhs / lhs; };
+
+	//Simple addition to a value operator.
+	const Vector4 operator + (const Vector4& lhs, const Matrix4 &rhs) { return Vector4(lhs.X + rhs.m[0], lhs.Y + rhs.m[4], lhs.Z + rhs.m[8], lhs.W + rhs.m[12]); }
+	Vector4 operator + (const Matrix4& lhs, const Vector4 &rhs) { return rhs + lhs; };
+	//Simple subtraction to a value operator.
+	const Vector4 operator - (const Vector4& lhs, const Matrix4 &rhs) { return Vector4(lhs.X - rhs.m[0], lhs.Y - rhs.m[4], lhs.Z - rhs.m[8], lhs.W - rhs.m[12]); }
+	Vector4 operator - (const Matrix4& lhs, const Vector4 &rhs) { return rhs - lhs; };
+	//Simple multiplication to a value operator.
+	const Vector4 operator * (const Vector4& lhs, const Matrix4 &rhs) { return Vector4(lhs.X * rhs.m[0], lhs.Y * rhs.m[4], lhs.Z * rhs.m[8], lhs.W * rhs.m[12]); }
+	Vector4 operator * (const Matrix4& lhs, const Vector4 &rhs) { return rhs * lhs; };
+	//Simple division to a value operator.
+	const Vector4 operator / (const Vector4& lhs, const Matrix4 &rhs) { return Vector4(lhs.X / rhs.m[0], lhs.Y / rhs.m[4], lhs.Z / rhs.m[8], lhs.W / rhs.m[12]); }
+	Vector4 operator / (const Matrix4& lhs, const Vector4 &rhs) { return rhs / lhs; };
+
+	std::ostream & operator << (std::ostream& stream, const Vector4& vec4) { vec4.Print(); return stream; }
+
+	const Vector4 Vector4::operator = (const Matrix3& rhs) { return Vector4(rhs.m[0], rhs.m[3], rhs.m[6], 0); }
+	const Vector4 Vector4::operator = (const Matrix4& rhs) { return Vector4(rhs.m[0], rhs.m[4], rhs.m[8], rhs.m[12]); }
 }

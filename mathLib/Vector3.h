@@ -1,12 +1,11 @@
 #pragma once
 #include "utils.h"
 
-class Matrix3;
-class Matrix4;
-
 
 namespace MathX
 {
+	class Matrix3;
+	class Matrix4;
 	class Vector3
 	{
 	public:
@@ -179,34 +178,11 @@ namespace MathX
 		//Simple decrement operator.
 		Vector3 & operator -- (int z) { --X, --Y, --Z; return *this; };
 
-		//Simple addition to a value operator.
-		const Vector3 operator + (const Matrix3& v) const;
-		friend Vector3 operator + (const Matrix3& lhs, const Vector3 &rhs);
-		//Simple subtraction to a value operator.
-		const Vector3 operator - (const Matrix3& v) const;
-		friend Vector3 operator - (const Matrix3& lhs, const Vector3 &rhs);
-		//Simple multiplication to a value operator.
-		const Vector3 operator * (const Matrix3& v) const;
-		friend Vector3 operator * (const Matrix3& lhs, const Vector3 &rhs);
-		//Simple division to a value operator.
-		const Vector3 operator / (const Matrix3& v) const;
-		friend Vector3 operator / (const Matrix3& lhs, const Vector3 &rhs);
-
-		//Simple addition to a value operator.
-		const Vector3 operator + (const Matrix4& v) const;
-		friend Vector3 operator + (const Matrix4& lhs, const Vector3 &rhs);
-		//Simple subtraction to a value operator.
-		const Vector3 operator - (const Matrix4& v) const;
-		friend Vector3 operator - (const Matrix4& lhs, const Vector3 &rhs);
-		//Simple multiplication to a value operator.
-		const Vector3 operator * (const Matrix4& v) const;
-		friend Vector3 operator * (const Matrix4& lhs, const Vector3 &rhs);
-		//Simple division to a value operator.
-		const Vector3 operator / (const Matrix4& v) const;
-		friend Vector3 operator / (const Matrix4& lhs, const Vector3 &rhs);
+		const Vector3 operator = (const Matrix3& rhs);
+		const Vector3 operator = (const Matrix4& rhs);
 
 		#pragma endregion Vector3 operations.
 	};
 
-	inline std::ostream & operator << (std::ostream& stream, const Vector3& vec3) { vec3.Print(); return stream; }
+	std::ostream & operator << (std::ostream& stream, const Vector3& vec3);
 }

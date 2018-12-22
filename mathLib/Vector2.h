@@ -1,11 +1,11 @@
 #pragma once
 #include "utils.h"
 
-class Matrix3;
-class Matrix4;
 
 namespace MathX
 {
+	class Matrix3;
+	class Matrix4;
 	class Vector2
 	{
 	public:
@@ -170,31 +170,8 @@ namespace MathX
 		//Simple decrement operator.
 		Vector2 & operator -- (int z) { --X, --Y; return *this; };
 
-		//Simple addition to a value operator.
-		const Vector2 operator + (const Matrix3& v) const;
-		friend Vector2 operator + (const Matrix3& lhs, const Vector2 &rhs);
-		//Simple subtraction to a value operator.
-		const Vector2 operator - (const Matrix3& v) const;
-		friend Vector2 operator - (const Matrix3& lhs, const Vector2 &rhs);
-		//Simple multiplication to a value operator.
-		const Vector2 operator * (const Matrix3& v) const;
-		friend Vector2 operator * (const Matrix3& lhs, const Vector2 &rhs);
-		//Simple division to a value operator.
-		const Vector2 operator / (const Matrix3& v) const;
-		friend Vector2 operator / (const Matrix3& lhs, const Vector2 &rhs);
-
-		//Simple addition to a value operator.
-		const Vector2 operator + (const Matrix4& v) const;
-		friend Vector2 operator + (const Matrix4& lhs, const Vector2 &rhs);
-		//Simple subtraction to a value operator.
-		const Vector2 operator - (const Matrix4& v) const;
-		friend Vector2 operator - (const Matrix4& lhs, const Vector2 &rhs);
-		//Simple multiplication to a value operator.
-		const Vector2 operator * (const Matrix4& v) const;
-		friend Vector2 operator * (const Matrix4& lhs, const Vector2 &rhs);
-		//Simple division to a value operator.
-		const Vector2 operator / (const Matrix4& v) const;
-		friend Vector2 operator / (const Matrix4& lhs, const Vector2 &rhs);
+		const Vector2 operator = (const Matrix3& rhs);
+		const Vector2 operator = (const Matrix4& rhs);
 
 		#pragma endregion Vector2 operations.
 	};

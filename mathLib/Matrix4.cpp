@@ -28,6 +28,13 @@ namespace MathX
 	}
 	Matrix4::~Matrix4() {}
 
+	void Matrix4::Print() const
+	{
+		std::cout << "(";
+		for (int i = 0; i < 16; ++i)
+			std::cout << m[i] << ", ";
+		std::cout << ")";
+	}
 	Matrix4 Matrix4::Identity()
 	{
 		Matrix4 temp;
