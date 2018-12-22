@@ -39,7 +39,8 @@ namespace MathX
 		~Matrix4();
 
 		void Print() const;
-		Matrix4 Identity();
+		Matrix4 GetIdentity();
+		void SetIdentity();
 		Matrix4 GetTranslation(float x, float y, float z);
 		Matrix4 GetTranslation(const Vector3 &v);
 		void Translate(float x, float y, float z);
@@ -153,7 +154,7 @@ namespace MathX
 
 			return tempMatrix;
 		}
-		Matrix4 operator = (const Matrix4 &rhs)
+		Matrix4& operator = (const Matrix4 &rhs)
 		{
 			if (this == &rhs)
 				return *this;

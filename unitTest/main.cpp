@@ -168,7 +168,7 @@ int main()
 	Vector3 id3test = id3 * Vector3{ 4,7,3 };
 	
 	Matrix4 AHHHHHHHHH;
-	AHHHHHHHHH.Identity();
+	AHHHHHHHHH.SetIdentity();
 	Vector4 AHHHHHHHHH1 = AHHHHHHHHH * Vector4(4, 7, 5, 3);
 	assert("PAIN", AHHHHHHHHH1, Vector4(4, 7, 5, 3));
 
@@ -176,8 +176,8 @@ int main()
 	UnitTester("Vector3 matrix transform B", v3b, Vector3(-849.156f, -48.23f, -148.863f));
 	UnitTester("Vector3 matrix transform C", v3c, Vector3(-22.5994224548f, 44.6950683594f, 862));
 	UnitTester("Vector4 matrix transform PAIN", AHHHHHHHHH1, Vector4(4, 7, 5, 3));
-	UnitTester("Vector4 matrix transform A", v4b, Vector4(-455.930236816f, -48.2299995422f, -731.678771973f, 0));
-	UnitTester("Vector4 matrix transform B", v4c, Vector4(41.951499939f, -27.3578968048f, 862, 0));
+	UnitTester("Vector4 matrix transform A", v4b, Vector4(432.794f, -48.23f, -745.597f, -8.88274e+10));
+	UnitTester("Vector4 matrix transform B", v4c, Vector4(41.9515f, -27.3579f, 862, 0.0f));
 
 	// matrix multiply
 	m3d = m3a * m3c;
@@ -190,16 +190,16 @@ int main()
 	m3b = Matrix3(1, 0, 0,
 		0, 1, 0,
 		0, 0, 1);
-	m3b.yAxis = Vector3(55, 44, 1);
+	m3b.zAxis = Vector3(55, 44, 1);
 	m3c.SetRotateZ(2.2f);
-	m3c.yAxis = Vector3(55, 44, 1);
+	m3c.zAxis = Vector3(55, 44, 1);
 	m4b = Matrix4(1, 0, 0, 0,
 		0, 1, 0, 0,
 		0, 0, 1, 0,
 		0, 0, 0, 1);
-	m4b.zAxis = Vector4(55, 44, 99, 1);
+	m4b.wAxis = Vector4(55, 44, 99, 1);
 	m4c.SetRotateZ(2.2f);
-	m4c.zAxis = Vector4(55, 44, 99, 1);
+	m4c.wAxis = Vector4(55, 44, 99, 1);
 
 	v3a = Vector3(13.5f, -48.23f, 1);
 	v3b = m3b * v3a;
@@ -217,16 +217,16 @@ int main()
 	m3b = Matrix3(1, 0, 0,
 		0, 1, 0,
 		0, 0, 1);
-	m3b.yAxis = Vector3(55, 44, 1);
+	m3b.zAxis = Vector3(55, 44, 1);
 	m3c.SetRotateZ(2.2f);
-	m3c.yAxis = Vector3(55, 44, 1);
+	m3c.zAxis = Vector3(55, 44, 1);
 	m4b = Matrix4(1, 0, 0, 0,
 		0, 1, 0, 0,
 		0, 0, 1, 0,
 		0, 0, 0, 1);
-	m4b.zAxis = Vector4(55, 44, 99, 1);
+	m4b.wAxis = Vector4(55, 44, 99, 1);
 	m4c.SetRotateZ(2.2f);
-	m4c.zAxis = Vector4(55, 44, 99, 1);
+	m4c.wAxis = Vector4(55, 44, 99, 1);
 
 	v3a = Vector3(13.5f, -48.23f, 0);
 	v3b = m3b * v3a;

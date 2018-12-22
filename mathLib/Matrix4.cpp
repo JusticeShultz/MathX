@@ -25,6 +25,13 @@ namespace MathX
 		m[6] = a7;
 		m[7] = a8;
 		m[8] = a9;
+		m[9] = a10;
+		m[10] = a11;
+		m[11] = a12;
+		m[12] = a13;
+		m[13] = a14;
+		m[14] = a15;
+		m[15] = a16;
 	}
 	Matrix4::~Matrix4() {}
 
@@ -35,7 +42,7 @@ namespace MathX
 			std::cout << m[i] << ", ";
 		std::cout << ")";
 	}
-	Matrix4 Matrix4::Identity()
+	Matrix4 Matrix4::GetIdentity()
 	{
 		Matrix4 temp;
 
@@ -60,6 +67,28 @@ namespace MathX
 		temp.m[15] = 1;
 
 		return temp;
+	}
+	void Matrix4::SetIdentity()
+	{
+		m[0] = 1;
+		m[4] = 0;
+		m[8] = 0;
+		m[12] = 0;
+
+		m[1] = 0;
+		m[5] = 1;
+		m[9] = 0;
+		m[13] = 0;
+
+		m[2] = 0;
+		m[6] = 0;
+		m[10] = 1;
+		m[14] = 0;
+
+		m[3] = 0;
+		m[7] = 0;
+		m[11] = 0;
+		m[15] = 1;
 	}
 	void Matrix4::Translate(float x, float y, float z)
 	{
@@ -122,17 +151,10 @@ namespace MathX
 	}
 	void Matrix4::SetRotateZ(float rot)
 	{
-		m[0] = std::cos(rot);
-		m[4] = std::sin(rot);
-		m[8] = 0;
-
-		m[1] = std::sin(rot) * -1;
-		m[5] = std::cos(rot);
-		m[9] = 0;
-
-		m[2] = 0;
-		m[6] = 0;
-		m[10] = 1;
+		m[0] = std::cos(rot); m[4] = std::sin(rot) * -1; m[8] = 0;  m[12] = 0;
+		m[1] = std::sin(rot); m[5] = std::cos(rot);		 m[9] = 0;  m[13] = 0;
+		m[2] = 0;			  m[6] = 0;					 m[10] = 1; m[14] = 0;
+		m[3] = 0;			  m[7] = 0;				     m[11] = 0; m[15] = 1;
 	}
 	Matrix4 Matrix4::GetRotation(float rot)
 	{
