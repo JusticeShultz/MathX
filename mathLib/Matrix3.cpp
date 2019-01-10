@@ -135,10 +135,6 @@ namespace MathX
 		m[5] = 0;
 		m[8] = 1;
 	}
-	void Matrix3::Rotate(float angle)
-	{
-
-	}
 	Matrix3 Matrix3::GetRotation(float rot)
 	{
 		Matrix3 temp = *this;

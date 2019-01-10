@@ -137,11 +137,10 @@ namespace MathX
 		//GETTER
 		Vector2 Forward() const
 		{
-			Vector2 VectorCalculation = { localPos.X, localPos.Y };
-			float normalVec = sqrt(VectorCalculation.X * VectorCalculation.X + VectorCalculation.Y * VectorCalculation.Y);
-			VectorCalculation.X = VectorCalculation.X / normalVec;
-			VectorCalculation.Y = VectorCalculation.Y / normalVec;
-			return VectorCalculation;
+			Vector2 Forward = Vector2(0, 0);
+			Vector3 convert = localRot * DEG2RAD + (PI / 2);
+			Forward = Vector2(cos(convert.Z), sin(convert.Z));
+			return Forward;
 		};
 
 		//SETTER
@@ -153,13 +152,11 @@ namespace MathX
 		//GETTER
 		Matrix3 GetTRSMatrix() const
 		{
-			//Reference: Transform Rotation Scale Matrix
-			Matrix3 temp;
-			temp.xAxis = Vector3(localPos.X, localPos.Y, 0);
-			temp.yAxis = Vector3(0, 0, localRot.Y);
-			temp.zAxis = Vector3(localScale.X, localScale.Y, 0);
-
-			return temp;
+			Matrix3 transMatrix = transMatrix.GetTranslation(localPos);
+			Matrix3 rotMatrix = rotMatrix.GetRotation(localRot.Z);
+			Matrix3 scaleMatrix = scaleMatrix.GetScale(localScale.X, localScale.Y);
+			// translate rotate scale
+			return transMatrix * rotMatrix * scaleMatrix;
 		};
 
 		//GETTER
@@ -196,6 +193,20 @@ namespace MathX
 				wrld += Parent->Transform->GetWorldScale();
 
 			return wrld;
+		};
+
+		//GETTER
+		Vector2 WorldForward() const
+		{
+			Vector3 wrld = Vector3(0, 0, 0);
+
+			if (Parent != nullptr)
+				wrld += Parent->Transform->GetWorldRotation();
+
+			Vector2 Forward = Vector2(0, 0);
+			Vector3 convert = Vector3(0, 0, (wrld.Z + localRot.Z)) * DEG2RAD + (PI / 2);
+			Forward = Vector2(cos(convert.Z), sin(convert.Z));
+			return Forward;
 		};
 	};
 
