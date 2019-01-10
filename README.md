@@ -1,12 +1,14 @@
 # MathX V1.20.42
 
-## MathX is a generic math library built for use of simple/commonly needed math functions that are generally used in games. This library supports dynamic operators and a wide range of different functions. Lines, curves, colors, etc are also included for more complex functionality.
+## MathX is a generic math library built for use of simple/commonly needed math functions that are generally used in games. This library supports dynamic operators and a wide range of different functions. Lines, curves, matrices, etc are also included for more complex functionality.
 
 ### Changelog:
-Code has been cleaned up significantly. 
+Code has been cleaned up significantly.
+Major change: utils.h is no longer what should be included - include "MathX.h" for full access to the entire math library in one line.
+
 
 All operations are now in capital lettering format. 
-The == operator now correctly handles floating point operators. 
+The == operator now correctly handles floating point operators by only using the first few decimal places(floats lose data the more you use them so epsilon is used). 
 Custom unit test functions added, the ability to check implemented types and floating point types has been added. 
 Unit test now has all available tests. 
 Normalize functions for Vector2, Vector3 & Vector4 now work correctly. 

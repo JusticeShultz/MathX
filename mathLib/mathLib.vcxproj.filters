@@ -42,6 +42,9 @@
     <ClInclude Include="MathX.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EngineExtras.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Color.cpp">
@@ -66,6 +69,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Vector4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineExtras.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

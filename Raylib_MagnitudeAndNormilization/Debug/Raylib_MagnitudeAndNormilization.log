@@ -1,17 +1,1 @@
-﻿  main.cpp
-c:\users\s189081\source\repos\mathlib\mathlib\utils.h(105): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\color.h(24): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\color.h(52): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\color.h(54): warning C4244: '-=': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\color.h(56): warning C4244: '*=': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\color.h(58): warning C4244: '/=': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\color.h(61): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\color.h(64): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\color.h(67): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\color.h(70): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\randoms.h(40): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\s189081\source\repos\mathlib\raylib_magnitudeandnormilization\ball.h(44): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\raylib_magnitudeandnormilization\main.cpp(22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s189081\source\repos\mathlib\raylib_magnitudeandnormilization\main.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-c:\users\s189081\source\repos\mathlib\raylib_magnitudeandnormilization\main.cpp(25): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Raylib_MagnitudeAndNormilization.vcxproj -> C:\Users\s189081\source\repos\mathLib\Debug\Raylib_MagnitudeAndNormilization.exe
+﻿  Raylib_MagnitudeAndNormilization.vcxproj -> C:\Users\s189081\source\repos\mathLib\Debug\Raylib_MagnitudeAndNormilization.exe

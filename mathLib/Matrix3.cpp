@@ -1,5 +1,4 @@
 #include "Matrix3.h"
-
 #include "Vector2.h"
 
 namespace MathX
