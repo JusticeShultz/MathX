@@ -5,7 +5,8 @@
 ### Changelog:
 Code has been cleaned up significantly.
 Major change: utils.h is no longer what should be included - include "MathX.h" for full access to the entire math library in one line.
-
+Engine type object system added.
+Matrices are fully working, woohoo!
 
 All operations are now in capital lettering format. 
 The == operator now correctly handles floating point operators by only using the first few decimal places(floats lose data the more you use them so epsilon is used). 
@@ -27,8 +28,6 @@ char operations in colors,
 lowercase operations, 
 bounders.
 non templated types.
-
-#### Currently does not support matrices or matrix scaler math. (Upcoming)
 
 
 # Example Projects:
