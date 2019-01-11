@@ -32,7 +32,14 @@ namespace MathX
 	Vector4 Vector4::GetScale(const float scale) { return Vector4(X * scale, Y * scale, Z * scale, W * scale); };
 	void Vector4::SetScale(const Vector4 scale) { X *= scale.X; Y *= scale.Y; Z *= scale.Z; W *= scale.W; };
 	Vector4 Vector4::GetScale(const Vector4 scale) { return Vector4(X * scale.X, Y * scale.Y, Z * scale.Z, W * scale.W); };
-	Vector4 & Vector4::Normal() { Set(-Y, X, Z, W); return *this; }
+	Vector4 & Vector4::Normal() 
+	{
+		Vector4 temp = (*this);
+		Vector4 Empty = Vector4(0, 0, 0, 0);
+		if (Magnitude() == 0.0f) return Empty;
+		temp /= Magnitude();
+		return temp;
+	}
 	Vector4 & Vector4::Normalize()
 	{
 		float len = Length();

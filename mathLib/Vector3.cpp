@@ -33,7 +33,13 @@ namespace MathX
 	Vector3 Vector3::GetScale(const float scale) { return Vector3(X * scale, Y * scale, Z * scale); };
 	void Vector3::SetScale(const Vector3 scale) { X *= scale.X; Y *= scale.Y; Z *= scale.Z; };
 	Vector3 Vector3::GetScale(const Vector3 scale) { return Vector3(X * scale.X, Y * scale.Y, Z * scale.Z); };
-	Vector3 & Vector3::Normal() { Set(-Y, X, Z); return *this; }
+	Vector3 & Vector3::Normal() 
+	{
+		Vector3 temp = (*this);
+		float fMagnitude = Magnitude();
+		temp /= fMagnitude;
+		return temp;
+	}
 	Vector3 & Vector3::Normalize()
 	{
 		float len = Length();

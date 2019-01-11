@@ -194,7 +194,7 @@ namespace MathX
 	}
 	Matrix3 Matrix3::GetTranspose() const
 	{
-		Matrix3 temp;
+		Matrix3 temp = *this;
 		temp.Transpose();
 		return temp;
 	}

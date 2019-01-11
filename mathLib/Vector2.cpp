@@ -38,7 +38,13 @@ namespace MathX
 	}
 	Vector2 Vector2::PerpendicularClockwise() { return Vector2(Y, -X); }
 	Vector2 Vector2::PerpendicularCounterClockwise() { return Vector2(-Y, X); }
-	Vector2 & Vector2::Normal() { Set(-Y, X); return *this; }
+	Vector2 & Vector2::Normal() 
+	{
+		Vector2 temp = (*this);
+		float fMagnitude = Magnitude();
+		temp /= fMagnitude;
+		return temp;
+	}
 	Vector2 & Vector2::Normalize()
 	{
 		float len = Length();

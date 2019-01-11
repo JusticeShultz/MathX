@@ -232,7 +232,7 @@ namespace MathX
 	}
 	Matrix4 Matrix4::GetTranspose() const
 	{
-		Matrix4 temp;
+		Matrix4 temp = *this;
 		temp.Transpose();
 		return temp;
 	}
