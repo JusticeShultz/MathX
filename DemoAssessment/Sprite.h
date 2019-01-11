@@ -15,8 +15,9 @@ public:
 		Rectangle Destination, Origin;
 
 		MathX::Matrix3 TRS( 0,0,0,0,0,0,0,0,0 );
-		TRS = toRender.Transform->GetWorldTRSMatrix() * toRender.Transform->GetTRSMatrix();
-
+		TRS = toRender.Transform->GetWorldTRSMatrix();
+		//TRS = toRender.Transform->GetTRSMatrix();
+		//MathX::Vector3 wrld = MathX::Vector3(toRender.Parent->Transform->GetWorldTranslation().X, toRender.Parent->Transform->GetWorldTranslation().Y, 0.0f);
 		MathX::Vector3 Transform = TRS.zAxis;
 		MathX::Vector3 Rotation = TRS.xAxis;
 		MathX::Vector3 Scale = MathX::Vector3(TRS.xAxis.Magnitude(), TRS.yAxis.Magnitude(), 1.0f);

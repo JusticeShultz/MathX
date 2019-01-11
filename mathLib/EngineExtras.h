@@ -35,18 +35,7 @@ namespace MathX
 		//If parent is a nullptr we have no parented object and we are standalone.
 		Object2D* Parent;
 		//Attach us to a new parent and keep our children.
-		void Attach(Object2D* toWho)
-		{
-			if (toWho == nullptr)
-			{
-				this->Parent = nullptr;
-				return;
-			}
-
-			toWho->Children.push_back(this);
-			this->Parent = toWho;
-			return;
-		}
+		void Attach(Object2D* toWho);
 		//Detach us from our parent but keep our children.
 		void Detach()
 		{
@@ -81,7 +70,7 @@ namespace MathX
 		}
 	};
 
-	class Transform2D : Object2D
+	class Transform2D : public Object2D
 	{ //Full access.
 	public:
 		//Constructor()
@@ -219,7 +208,7 @@ namespace MathX
 			wrld = GetTRSMatrix();
 
 			if (Parent != nullptr)
-				wrld *= Parent->Transform->GetTRSMatrix();
+				wrld = Parent->Transform->GetTRSMatrix() * wrld;
 
 			return wrld;
 		};

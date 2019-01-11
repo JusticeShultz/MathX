@@ -7,6 +7,22 @@ namespace MathX
 		delete Transform;
 	}
 
+	//Attach us to a new parent and keep our children.
+
+	void Object2D::Attach(Object2D * toWho)
+	{
+		if (toWho == nullptr)
+		{
+			this->Parent = nullptr;
+			return;
+		}
+
+		toWho->Children.push_back(this);
+		this->Parent = toWho;
+		this->Transform->Parent = toWho;
+		return;
+	}
+
 	//Complete constructor.
 
 	Object2D::Object2D(std::string nm, Vector2 pos, Vector3 rot, Vector2 scale)

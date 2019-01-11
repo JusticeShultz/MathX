@@ -4,8 +4,8 @@
 
 void main()
 {
-	int screenWidth = 800;
-	int screenHeight = 450;
+	int screenWidth = 1250;
+	int screenHeight = 900;
 	InitWindow(screenWidth, screenHeight, "Tank Matrices - MathX Custom Math Library");
 	SetTargetFPS(60);
 	int bulletCD = 0;
@@ -36,6 +36,9 @@ void main()
 		BeginDrawing();
 		ClearBackground(GRAY);
 
+		for (int i = 0; i < Shots.size(); ++i)
+			Shots[i]->Update();
+
 		//Example of the hierarchies finding by name capability.
 		PlayerSprite.RenderSprite(*Space.FindChildByName("Player"));
 		TurretSprite.RenderSprite(*Space.FindChildByName("Player")->FindChildByName("Turret"));
@@ -46,6 +49,12 @@ void main()
 			Space.FindChildByName("Player")->Transform->localPos += Space.FindChildByName("Player")->Transform->Forward() * -1;
 		if (IsKeyDown(KEY_S))
 			Space.FindChildByName("Player")->Transform->localPos += Space.FindChildByName("Player")->Transform->Forward() * 1;
+		if (IsKeyDown(KEY_R))
+			Space.FindChildByName("Player")->FindChildByName("Turret")->Transform->localPos += 
+				Space.FindChildByName("Player")->FindChildByName("Turret")->Transform->Forward() * -1;
+		if (IsKeyDown(KEY_F))
+			Space.FindChildByName("Player")->FindChildByName("Turret")->Transform->localPos += 
+				Space.FindChildByName("Player")->FindChildByName("Turret")->Transform->Forward() * 1;
 		if (IsKeyDown(KEY_Q))
 			Space.FindChildByName("Player")->FindChildByName("Turret")->Transform->localRot -= 0.05;
 		if (IsKeyDown(KEY_E))
@@ -66,26 +75,22 @@ void main()
 		{
 			bulletCD = 0;
 			Shots.push_back(new Shot);
-			Shots.back()->Position = Space.FindChildByName("Player")->Transform->localPos;
 
 			MathX::Vector3 wrld = Space.FindChildByName("Player")->FindChildByName("Turret")->Transform->GetWorldRotation();
 			MathX::Vector2 Forward = MathX::Vector2(0, 0);
 			MathX::Vector3 convert = (Space.FindChildByName("Player")->FindChildByName("Turret")->Transform->localRot +
-				Space.FindChildByName("Player")->Transform->GetWorldRotation()) * DEG2RAD + (PI / 2);
+				Space.FindChildByName("Player")->Transform->GetWorldRotation()) + (PI / 2);
 			Forward = MathX::Vector2(cos(convert.Z), sin(convert.Z));
 			Shots.back()->Velocity = Forward * -10;
-
+			Shots.back()->Position = Space.FindChildByName("Player")->Transform->localPos + (Shots.back()->Velocity * 4);
 			//Little visual memory in our console to visualize how large our bullet count is.
 			std::cout << "S";
 		}
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		for (int i = 0; i < Shots.size(); ++i)
-		{
-			Shots[i]->Update();
-		}
-
 		++bulletCD;
+
+		DrawText("Used W and S to move the tank forward and backwards.\nUsed R and F to move the turret forward and backwards.\nUse Q and E to rotate the turret.\nUse A and D to rotate the tank.\nUse Z and X to scale the tank.\nUse C and V to scale the turret.\nUse Space to fire.", 25, 25, 20, WHITE);
 
 		EndDrawing();
 	}

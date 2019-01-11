@@ -10,25 +10,25 @@ c:\users\s189081\source\repos\mathlib\mathlib\color.h(64): warning C4244: 'argum
 c:\users\s189081\source\repos\mathlib\mathlib\color.h(67): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 c:\users\s189081\source\repos\mathlib\mathlib\color.h(70): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 c:\users\s189081\source\repos\mathlib\mathlib\randoms.h(40): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\engineextras.h(55): warning C4018: '<': signed/unsigned mismatch
-c:\users\s189081\source\repos\mathlib\mathlib\engineextras.h(73): warning C4018: '<': signed/unsigned mismatch
-c:\users\s189081\source\repos\mathlib\mathlib\engineextras.h(121): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\engineextras.h(133): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\users\s189081\source\repos\mathlib\mathlib\engineextras.h(141): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\s189081\source\repos\mathlib\mathlib\engineextras.h(210): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\s189081\source\repos\mathlib\demoassessment\sprite.h(28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\engineextras.h(44): warning C4018: '<': signed/unsigned mismatch
+c:\users\s189081\source\repos\mathlib\mathlib\engineextras.h(62): warning C4018: '<': signed/unsigned mismatch
+c:\users\s189081\source\repos\mathlib\mathlib\engineextras.h(110): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\engineextras.h(122): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\mathlib\engineextras.h(130): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\s189081\source\repos\mathlib\mathlib\engineextras.h(199): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\s189081\source\repos\mathlib\demoassessment\sprite.h(29): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\s189081\source\repos\mathlib\demoassessment\sprite.h(36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\demoassessment\sprite.h(30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\s189081\source\repos\mathlib\demoassessment\sprite.h(37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(6): warning C4326: return type of 'main' should be 'int' instead of 'void'
 c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(18): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(50): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(52): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(54): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(56): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(58): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(60): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(62): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(64): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(74): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(83): warning C4018: '<': signed/unsigned mismatch
+c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(39): warning C4018: '<': signed/unsigned mismatch
+c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(59): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(61): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(63): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(65): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(67): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(69): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(71): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(73): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\s189081\source\repos\mathlib\demoassessment\main.cpp(82): warning C4305: 'argument': truncation from 'double' to 'float'
   DemoAssessment.vcxproj -> C:\Users\s189081\source\repos\mathLib\Debug\Z_DemoAssessment.exe
