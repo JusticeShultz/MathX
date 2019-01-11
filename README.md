@@ -46,3 +46,6 @@ This math library features some basic visual examples of the math functions in a
 
 ### Assassin game with a 2D "flashlight system":
 ![alt text](https://github.com/JusticeShultz/MathLibrary/blob/master/ImageExamples/Image04.PNG)
+
+
+### Matrices are in column major for future refrence.
