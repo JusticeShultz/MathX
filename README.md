@@ -1,5 +1,5 @@
 # MathX V1.20.42
-![alt text](https://github.com/JusticeShultz/MathLibrary/blob/master/ImageExamples/Image01.PNG)
+![alt text](https://github.com/JusticeShultz/MathX/blob/master/ImageExamples/WEW.gif)
 
 ## MathX is a generic math library built for use of simple/commonly needed math functions that are generally used in games. This library supports dynamic operators and a wide range of different functions. Lines, curves, matrices, etc are also included for more complex functionality.
 
