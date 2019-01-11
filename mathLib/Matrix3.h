@@ -30,6 +30,7 @@ namespace MathX
 				float m1, m2, m3,
 					m4, m5, m6,
 					m7, m8, m9;
+				
 			};
 
 			Vector3 axis[3];
@@ -53,8 +54,12 @@ namespace MathX
 		void SetRotateX(float rot);
 		void SetRotateY(float rot);
 		void SetRotateZ(float rot);
-		void Rotate(float angle);
+
+		//I replaced this with set rotate because I'm cool // void Rotate(float angle);
+
+		//Get the rotation of the matrix
 		Matrix3 GetRotation(float rot);
+		//Get the scale of the matrix
 		Matrix3 GetScale(float xScale, float yScale);
 		void Scale(float xScale, float yScale);
 		//Rebuild the matrix
@@ -138,13 +143,18 @@ namespace MathX
 
 			tempMatrix.m[0] = m[0] * rhs.m[0] + m[3] * rhs.m[1] + m[6] * rhs.m[2];
 			tempMatrix.m[3] = m[0] * rhs.m[3] + m[3] * rhs.m[4] + m[6] * rhs.m[5];
-			tempMatrix.m[6] = m[0] * rhs.m[6] + m[3] * rhs.m[7] + m[6] * rhs.m[8];
+			tempMatrix.m[6] = m[0] * rhs.m[6] + m[3] * rhs.m[7] + m[6] * rhs.m[8];//scale
+
+
 			tempMatrix.m[1] = m[1] * rhs.m[0] + m[4] * rhs.m[1] + m[7] * rhs.m[2];
 			tempMatrix.m[4] = m[1] * rhs.m[3] + m[4] * rhs.m[4] + m[7] * rhs.m[5];
-			tempMatrix.m[7] = m[1] * rhs.m[6] + m[4] * rhs.m[7] + m[7] * rhs.m[8];
+			tempMatrix.m[7] = m[1] * rhs.m[6] + m[4] * rhs.m[7] + m[7] * rhs.m[8];//scale
+
+
 			tempMatrix.m[2] = m[2] * rhs.m[0] + m[5] * rhs.m[1] + m[8] * rhs.m[2];
 			tempMatrix.m[5] = m[2] * rhs.m[3] + m[5] * rhs.m[4] + m[8] * rhs.m[5];
-			tempMatrix.m[8] = m[2] * rhs.m[6] + m[5] * rhs.m[7] + m[8] * rhs.m[8];
+			tempMatrix.m[8] = m[2] * rhs.m[6] + m[5] * rhs.m[7] + m[8] * rhs.m[8];//scale
+
 
 			return tempMatrix;
 

@@ -16,12 +16,20 @@ void main()
 	//---------------------------------------------------------------------------------------------------------------------//
 
 	MathX::Object2D Player("Player", MathX::Vector2(screenWidth / 2, screenHeight / 2), MathX::Vector3(0, 0, 0), MathX::Vector2(1, 1), &Space);
-	MathX::Object2D Turret("Turret", MathX::Vector2(35, 0), MathX::Vector3(0, 0, 0), MathX::Vector2(1, 1), &Player);
+	MathX::Object2D Turret("Turret", MathX::Vector2(0, 0), MathX::Vector3(0, 0, 0), MathX::Vector2(1, 1), &Player);
 	Sprite PlayerSprite;
 	Sprite TurretSprite;
 	PlayerSprite.SpriteSource = LoadTexture("TankBase.png");
 	TurretSprite.SpriteSource = LoadTexture("TankTurret.png");
 	std::vector<Shot*> Shots;
+
+	MathX::Matrix3 id;
+	id = id.GetIdentity();
+
+	MathX::Matrix3 offset;
+	offset = offset.GetTranslation(5, 9);
+
+	MathX::Matrix3 trs = id * offset;
 
 	while (!WindowShouldClose())
 	{
@@ -39,13 +47,13 @@ void main()
 		if (IsKeyDown(KEY_S))
 			Space.FindChildByName("Player")->Transform->localPos += Space.FindChildByName("Player")->Transform->Forward() * 1;
 		if (IsKeyDown(KEY_Q))
-			Space.FindChildByName("Player")->FindChildByName("Turret")->Transform->localRot -= 2;
+			Space.FindChildByName("Player")->FindChildByName("Turret")->Transform->localRot -= 0.05;
 		if (IsKeyDown(KEY_E))
-			Space.FindChildByName("Player")->FindChildByName("Turret")->Transform->localRot += 2;
+			Space.FindChildByName("Player")->FindChildByName("Turret")->Transform->localRot += 0.05;
 		if (IsKeyDown(KEY_A))
-			Space.FindChildByName("Player")->Transform->localRot -= 1;
+			Space.FindChildByName("Player")->Transform->localRot -= 0.05;
 		if (IsKeyDown(KEY_D))
-			Space.FindChildByName("Player")->Transform->localRot += 1;
+			Space.FindChildByName("Player")->Transform->localRot += 0.05;
 		if (IsKeyDown(KEY_Z))
 			Space.FindChildByName("Player")->Transform->localScale -= 0.01;
 		if (IsKeyDown(KEY_X))

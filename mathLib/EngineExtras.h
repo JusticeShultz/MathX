@@ -138,7 +138,7 @@ namespace MathX
 		Vector2 Forward() const
 		{
 			Vector2 Forward = Vector2(0, 0);
-			Vector3 convert = localRot * DEG2RAD + (PI / 2);
+			Vector3 convert = localRot + (PI / 2);
 			Forward = Vector2(cos(convert.Z), sin(convert.Z));
 			return Forward;
 		};
@@ -152,15 +152,18 @@ namespace MathX
 		//GETTER
 		Matrix3 GetTRSMatrix() const
 		{
-			Matrix3 transMatrix = transMatrix.GetTranslation(localPos);
-			Matrix3 rotMatrix = rotMatrix.GetRotation(localRot.Z);
-			Matrix3 scaleMatrix = scaleMatrix.GetScale(localScale.X, localScale.Y);
+			Matrix3 transMatrix;
+			transMatrix = transMatrix.GetTranslation(localPos);
+			Matrix3 rotMatrix;
+			rotMatrix = rotMatrix.GetRotation(localRot.Z);
+			Matrix3 scaleMatrix;
+			scaleMatrix = scaleMatrix.GetScale(localScale.X, localScale.Y);
 			// translate rotate scale
 			return transMatrix * rotMatrix * scaleMatrix;
 		};
 
 		//GETTER
-		Vector2 GetWorldTranslation()
+		Vector2 GetWorldTranslation() const
 		{
 			Vector2 wrld = Vector2(0,0);
 			wrld += localPos;
@@ -172,7 +175,7 @@ namespace MathX
 		};
 
 		//GETTER
-		Vector3 GetWorldRotation()
+		Vector3 GetWorldRotation() const
 		{
 			Vector3 wrld = Vector3(0, 0, 0);
 			wrld += Vector3(0, 0, localRot.Z);
@@ -184,7 +187,7 @@ namespace MathX
 		};
 
 		//GETTER
-		Vector2 GetWorldScale()
+		Vector2 GetWorldScale() const
 		{
 			Vector2 wrld = Vector2(0, 0);
 			wrld += localScale;
@@ -207,6 +210,18 @@ namespace MathX
 			Vector3 convert = Vector3(0, 0, (wrld.Z + localRot.Z)) * DEG2RAD + (PI / 2);
 			Forward = Vector2(cos(convert.Z), sin(convert.Z));
 			return Forward;
+		};
+
+		//GETTER
+		Matrix3 GetWorldTRSMatrix() const
+		{
+			Matrix3 wrld(0, 0, 0, 0, 0, 0, 0, 0, 0);
+			wrld = GetTRSMatrix();
+
+			if (Parent != nullptr)
+				wrld *= Parent->Transform->GetTRSMatrix();
+
+			return wrld;
 		};
 	};
 

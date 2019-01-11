@@ -7,7 +7,8 @@ namespace MathX
 	Matrix3::Matrix3() {}
 	Matrix3::Matrix3(const Matrix3& z)
 	{
-		*this->m = *z.m;
+		for(int i = 0; i < 9; ++i)
+			this->m[i] = z.m[i];
 	}
 	Matrix3::Matrix3(float *ptr)
 	{
@@ -71,13 +72,14 @@ namespace MathX
 	}
 	void Matrix3::Translate(float x, float y)
 	{
-		m[0] += x;
-		m[1] += x;
-		m[2] += x;
+		Matrix3 tempMatrix = GetIdentity();
+		tempMatrix.zAxis.X = x;
+		tempMatrix.zAxis.Y = y;
 
-		m[3] += y;
-		m[4] += y;
-		m[5] += y;
+		for (int i = 0; i < 9; ++i)
+		{
+			m[i] = tempMatrix.m[i];
+		}
 	}
 	void Matrix3::Translate(const Vector2 &v)
 	{
@@ -138,23 +140,28 @@ namespace MathX
 	Matrix3 Matrix3::GetRotation(float rot)
 	{
 		Matrix3 temp = *this;
-		temp.Rotate(rot);
+		temp.SetRotateZ(rot);
 		return temp;
 	}
 	Matrix3 Matrix3::GetScale(float xScale, float yScale)
 	{
-		Matrix3 temp = *this;
-		temp.Scale(xScale, yScale);
+		Matrix3 temp = { 0,0,0,0,0,0,0,0,0 };
+		temp = temp.GetIdentity();
+		temp.xAxis.X = xScale;
+		temp.yAxis.Y = yScale;
+		//temp.Scale(xScale, yScale);
 		return temp;
 	}
 	void Matrix3::Scale(float xScale, float yScale)
 	{
-		m[0] *= xScale;
-		m[1] *= xScale;
-		m[2] *= xScale;
-		m[3] *= yScale;
-		m[4] *= yScale;
-		m[5] *= yScale;
+		Matrix3 tempMatrix = GetIdentity();
+		tempMatrix.xAxis.X = xScale;
+		tempMatrix.yAxis.Y = yScale;
+		
+		for (int i = 0; i < 9; ++i)
+		{
+			m[i] = tempMatrix.m[i];
+		}
 	}
 	void Matrix3::Set(float a1, float a2, float a3, float a4, float a5, float a6, float a7, float a8, float a9)
 	{
@@ -194,3 +201,9 @@ namespace MathX
 
 	#pragma endregion Matrix3
 }
+
+/*
+	036
+	147
+	258
+*/
