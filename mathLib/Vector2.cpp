@@ -19,7 +19,7 @@ namespace MathX
 	float Vector2::Distance(const Vector2 & v) const { return sqrt(((X - v.X) * (X - v.X)) + ((Y - v.Y) * (Y - v.Y))); }
 	float Vector2::DistanceSquared(const Vector2 & v) const { return ((X - v.X) * (X - v.X)) + ((Y - v.Y) * (Y - v.Y)); }
 	float Vector2::Dot(const Vector2 & v) const { return X * v.X + Y * v.Y; }
-	float Vector2::Cross(const Vector2 & v) const { return X * v.Y + Y * v.X; }
+	float Vector2::Cross(const Vector2 & v) const { return X * v.Y - Y * v.X; }
 	void Vector2::SetScale(const float scale) { X *= scale; Y *= scale; };
 	Vector2 Vector2::GetScale(const float scale) { return Vector2(X * scale, Y * scale); };
 	void Vector2::SetScale(const Vector2 scale) { X *= scale.X; Y *= scale.Y; };
